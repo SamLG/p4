@@ -1,0 +1,118 @@
+html {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("../images/old-white-background.jpg") white;
+    padding: 0;
+    margin: 0 0 100px;
+}
+
+header {
+    color: rgba(0, 51, 0, 1);
+    width: 100%;
+    background-color: rgba(208, 225, 208, 0.9);
+    overflow: auto;
+    position:fixed;
+    /*I needed to up the z-index so that my asides' text with their 'transparent
+    background images' wouldnt go over top of my navigation text. I learned
+    that there is a relationship between z-index and opacity, in which opacity
+    can dictate z-index https://philipwalton.com/articles/what-no-one-told-you-about-z-index/*/
+    z-index: 1;
+}
+
+/*changed h1 to img for better response with resizing, h1 was flowing too much*/
+header div {
+    /*width: 40%;*/
+}
+header img {
+    /*width: 40%;*/
+    padding-top: .5em;
+    float: left;
+    margin: 0;
+}
+h1 {
+    float: left;
+    margin-top: 2em;
+}
+main {
+    width: 80%;
+    padding: 10em 1em 1em 1em;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+main a {
+    color: #000080;
+}
+main a:hover {
+    background: white;
+}
+main a:visited {
+    color: #26004d;
+}
+
+nav {
+    font-size: 1.2em;
+    font-weight: bold;
+    /*width: 60%;*/
+    float: right;
+    /*padding-top: 2em;*/
+}
+nav ul {
+    padding: 0;
+    padding-top: 4em;
+    margin: 0;
+    list-style-type: none;
+    text-align: right;
+}
+nav li {
+    display: inline-block;
+    /*padding-right: 3em;*/
+}
+nav a {
+    text-decoration: none;
+    color: rgba(0, 51, 0, 1);
+    padding: .5em .75em;
+    border-radius: .5em;
+}
+nav a:hover {
+    color: black;
+    background-color: rgba(185, 198, 212, 1);
+}
+
+footer {
+    color: rgba(0, 51, 0, 1);
+    background: rgba(208, 225, 208, 0.9);
+    /*width: 100%;*/
+    text-align: center;
+    padding: .5em;
+    /*added lines to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+}
+/*screen reader only styling adapted from: http://webaim.org/techniques/css/invisiblecontent/*/
+.sr-only {
+        position:absolute;
+        left:-10000px;
+        top:auto;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+}
+.sr-only:focus {
+    position:static;
+    width:auto;
+    height:auto;
+    float: right;
+    padding-right: 4em;
+    color: white;
+}
