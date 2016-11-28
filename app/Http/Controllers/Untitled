@@ -1,16 +1,16 @@
 <?php
 
-namespace p3\Http\Controllers;
+namespace P4\Http\Controllers;
 
-use p3\Http\Controllers\Controller;
+use P4\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class GardenController extends Controller
 {
     /**
      * Responds to requests to GET /
      */
     public function index()
     {
-        return view('home.index');
+        return view('garden.index');
     }
 } # end of class

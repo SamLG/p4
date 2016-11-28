@@ -19,10 +19,6 @@
     <body>
         <header>
             <a href="#content" class="sr-only">skip to content</a>
-            <div>
-
-                <!-- <h1>Green Thumb</h1> -->
-            </div>
             <nav class="navbar navbar-inverse navbar-fixed-top">
               <div class="container">
                 <div class="navbar-header">
@@ -33,15 +29,15 @@
                     <span class="icon-bar"></span>
                   </button>
                   <!--logo drawn from: https://www.google.com/search?q=thumb&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjUu6zAwMnQAhUF24MKHZKbBbQQ_AUICCgB&biw=1440&bih=726#imgrc=C6y-X-gOe4cneM%3A-->
-                  <a class="navbar-brand" href="/"><img alt="Green Thumb" src="/images/GreenThumbLogo140px.png"/></a>
+                  <a class="navbar-brand" href="/"><img alt="Green Thumb" src="/images/GreenThumbLogo90px.png"/></a>
                   <!-- <a class="navbar-brand" href="/">GreenThumb</a> -->
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/gardens">My Gardens</a></li>
-                    <li><a href="/plants">My Plants</a></li>
-                    <li><a href="/wishlist">My Wishlist Plants</a></li>
+                    <!-- <li><a href="/plants">My Plants</a></li>
+                    <li><a href="/wishlist">My Wishlist Plants</a></li> -->
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
