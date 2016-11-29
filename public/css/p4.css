@@ -17,7 +17,8 @@ header {
     color: rgba(0, 51, 0, 1);
     /*width: 100%;*/
     background-color: rgba(208, 225, 208, 0.9);
-    overflow: auto;
+    /*the line below breaks the header in IE*/
+    /*overflow: auto;*/
     position:fixed;
     /*I needed to up the z-index so that my asides' text with their 'transparent
     background images' wouldnt go over top of my navigation text. I learned
@@ -31,7 +32,9 @@ header {
 }
 .navbar-nav{
     padding-top: 2em;
+    float: right;
 }
+.navbar-inner{ filter:none;}
 main {
     width: 80%;
     padding: 10em 1em 1em 1em;
