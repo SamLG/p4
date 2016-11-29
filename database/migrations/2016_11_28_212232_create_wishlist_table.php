@@ -28,6 +28,7 @@ class CreateWishlistTable extends Migration
             $table->string('scientific_name')->nullable();
             $table->text('description')->nullable();
             $table->string('prior_success')->nullable();
+            $table->string('last_grown')->nullable();
         });
     }
 

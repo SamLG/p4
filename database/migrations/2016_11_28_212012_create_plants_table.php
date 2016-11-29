@@ -28,7 +28,7 @@ class CreatePlantsTable extends Migration
             $table->string('scientific_name')->nullable();
             $table->text('description')->nullable();
             $table->string('success')->nullable();
-            $table->timestamp('planted')->nullable();
+            $table->string('planted')->nullable();
             $table->string('location')->nullable();
         });
     }
