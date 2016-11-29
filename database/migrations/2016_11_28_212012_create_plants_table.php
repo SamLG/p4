@@ -28,6 +28,9 @@ class CreatePlantsTable extends Migration
             $table->string('scientific_name')->nullable();
             $table->text('description')->nullable();
             $table->string('success')->nullable();
+            $table->string('hardiness')->nullable();
+            $table->string('height')->nullable();
+            $table->string('bloomtime')->nullable();
             $table->string('planted')->nullable();
             $table->string('location')->nullable();
         });
