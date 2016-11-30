@@ -85,7 +85,7 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
-if(App::environment('local')) {
+// if(App::environment('local')) {
 
     Route::get('/drop', function() {
 
@@ -95,4 +95,4 @@ if(App::environment('local')) {
         return 'Dropped green_thumb; created green_thumb.';
     });
 
-};
+// };
