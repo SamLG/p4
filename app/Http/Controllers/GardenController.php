@@ -3,6 +3,7 @@
 namespace P4\Http\Controllers;
 
 use P4\Http\Controllers\Controller;
+use P4\Plant;
 
 class GardenController extends Controller
 {
@@ -13,16 +14,20 @@ class GardenController extends Controller
      */
     public function index()
     {
-        return view('garden.index');
+        $plants = Plant::all();
+        return view('garden.index')->with('plants',$plants);
+
+        // return view('garden.index');
     }
     /**
      * Responds to requests to GET /
      * purpose: Show individual plant
      * Route::get('/gardens/show/{id}', 'GardenController@show')->name('plants.show');
      */
-    public function show()
+    public function show($id)
     {
-        return view('garden.show');
+        $plant = Plant::find($id);
+        return view('plants.show')->with(['plant'=>$plant]);
     }
     /**
      * Responds to requests to GET /
@@ -31,7 +36,7 @@ class GardenController extends Controller
      */
     public function create()
     {
-        return view('garden.create');
+        return view('plants.create');
     }
     /**
      * Responds to requests to POST /
@@ -40,7 +45,7 @@ class GardenController extends Controller
      */
     public function store()
     {
-        return view('garden.store');
+        return view('plants.store');
     }
     /**
      * Responds to requests to GET /
@@ -49,7 +54,7 @@ class GardenController extends Controller
      */
     public function edit()
     {
-        return view('garden.edit');
+        return view('plants.edit');
     }
     /**
      * Responds to requests to POST /
@@ -58,6 +63,6 @@ class GardenController extends Controller
      */
     public function update()
     {
-        return view('garden.update');
+        return view('plants.update');
     }
 } # end of class

@@ -19,8 +19,17 @@ such as a page specific stylesheets.
     <h2>Here is your garden!</h2>
 
     <h3>My Plants</h3>
+    <div class='plant'>
+        @foreach($plants as $plant)
+            <a href="/plants/show/{{ $plant->id }}">
+                <div class='eachPlant'>
+                    <h4>{{ $plant->common_name }}</h4>
+                    <p>{{ $plant->description }}</p>
+                </div>
+            </a>
+        @endforeach
+    </div>
     <h3>My Wishlist Plants</h3>
-
 
 @stop
 

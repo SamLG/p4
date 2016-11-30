@@ -26,6 +26,21 @@ header {
     can dictate z-index https://philipwalton.com/articles/what-no-one-told-you-about-z-index/*/
     z-index: 1;
 }
+.eachPlant {
+    color: black;
+    border: solid black 1px;
+    margin-top: .5em;
+    padding: .5em;
+    border-radius: .5em;
+}
+.plant a:hover{
+    color: black;
+    text-decoration: none;
+}
+a:hover .eachPlant{
+    background-color: grey;
+}
+
 .navbar-brand {
     height: 110px;
     width: auto;

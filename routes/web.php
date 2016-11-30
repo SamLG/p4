@@ -22,34 +22,34 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/gardens', 'GardenController@index')->name('garden.index');
 
 /*purpose: Show individual plant*/
-Route::get('/gardens/show/{id}', 'GardenController@show')->name('plants.show');
+Route::get('/plants/show/{id}', 'GardenController@show')->name('plants.show');
 
 /*purpose: Show form to add plant*/
-Route::get('/gardens/create', 'GardenController@create')->name('plants.create');
+Route::get('/plants/create', 'GardenController@create')->name('plants.create');
 
 /*purpose: Process form to add plant*/
-Route::post('/gardens/create', 'GardenController@store')->name('plants.store');
+Route::post('/plants/create', 'GardenController@store')->name('plants.store');
 
 /*purpose: Show form to edit plant*/
-Route::get('/gardens/edit/{id}}', 'GardenController@edit')->name('plants.edit');
+Route::get('/plants/edit/{id}}', 'GardenController@edit')->name('plants.edit');
 
 /*purpose: Process form to edit plant*/
-Route::put('/gardens/edit/{id}', 'GardenController@update')->name('plants.update');
+Route::put('/plants/edit/{id}', 'GardenController@update')->name('plants.update');
 
 /*purpose: Show individual wishlist plant*/
-Route::get('/wishlist/show/{id}', 'WishlistController@show')->name('wishlist.show');
+Route::get('/wishlistplants/show/{id}', 'WishlistPlantsController@show')->name('wishlistPlants.show');
 
 /*purpose: Show form to add wishlist plant*/
-Route::get('/wishlist/create', 'WishlistController@create')->name('wishlist.create');
+Route::get('/wishlistplants/create', 'WishlistPlantsController@create')->name('wishlistPlants.create');
 
 /*purpose: Process form to add wishlist plant*/
-Route::post('/wishlist/create', 'WishlistController@store')->name('wishlist.store');
+Route::post('/wishlistplants/create', 'WishlistPlantsController@store')->name('wishlistPlants.store');
 
 /*purpose: Show form to edit wishlist plant*/
-Route::get('/wishlist/edit/{id}', 'WishlistController@edit')->name('wishlist.edit');
+Route::get('/wishlistplants/edit/{id}', 'WishlistPlantsController@edit')->name('wishlistPlants.edit');
 
 /*purpose: Process form to edit wishlist plant*/
-Route::put('/wishlist/edit/{id}', 'WishlistController@update')->name('wishlist.update');
+Route::put('/wishlistplants/edit/{id}', 'WishlistPlantsController@update')->name('wishlistPlants.update');
 
 Route::get('/debug', function() {
 
@@ -89,10 +89,10 @@ if(App::environment('local')) {
 
     Route::get('/drop', function() {
 
-        DB::statement('DROP database foobooks');
-        DB::statement('CREATE database foobooks');
+        DB::statement('DROP database green_thumb');
+        DB::statement('CREATE database green_thumb');
 
-        return 'Dropped foobooks; created foobooks.';
+        return 'Dropped green_thumb; created green_thumb.';
     });
 
 };

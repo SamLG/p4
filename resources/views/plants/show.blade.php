@@ -18,7 +18,8 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Here is your plant</h2>
 
-    <h3>plant</h3>
+    <h3>{{ $plant->common_name }}</h3>
+    <p>{{ $plant->description }}</p>
 
 @stop
 

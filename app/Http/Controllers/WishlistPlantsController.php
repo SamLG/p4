@@ -3,8 +3,9 @@
 namespace P4\Http\Controllers;
 
 use P4\Http\Controllers\Controller;
+use P4\WishlistPlant
 
-class WishlistController extends Controller
+class WishlistPlantsController extends Controller
 {
     /**
      * Responds to requests to GET /
@@ -13,7 +14,7 @@ class WishlistController extends Controller
      */
     public function show()
     {
-        return view('wishlist.index');
+        return view('wishlistPlants.index');
     }
     /**
      * Responds to requests to GET /
@@ -22,7 +23,7 @@ class WishlistController extends Controller
      */
     public function create()
     {
-        return view('wishlist.create');
+        return view('wishlistPlants.create');
     }
     /**
      * Responds to requests to POST /
@@ -31,7 +32,7 @@ class WishlistController extends Controller
      */
     public function store()
     {
-        return view('wishlist.store');
+        return view('wishlistPlants.store');
     }
     /**
      * Responds to requests to GET /
@@ -40,7 +41,7 @@ class WishlistController extends Controller
      */
     public function edit()
     {
-        return view('wishlist.edit');
+        return view('wishlistPlants.edit');
     }
     /**
      * Responds to requests to GET /
@@ -49,6 +50,6 @@ class WishlistController extends Controller
      */
     public function update()
     {
-        return view('wishlist.update');
+        return view('wishlistPlants.update');
     }
 } # end of class

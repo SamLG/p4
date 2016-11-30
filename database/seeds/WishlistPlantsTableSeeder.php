@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class WishlistTableSeeder extends Seeder
+class WishlistPlantsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class WishlistTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('wishlist')->insert([
+        DB::table('wishlistPlants')->insert([
        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
        'common_name' => 'Peace Rose',
@@ -24,7 +24,7 @@ class WishlistTableSeeder extends Seeder
        'last_grown' => '2014',
        ]);
 
-       DB::table('wishlist')->insert([
+       DB::table('wishlistPlants')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
            'common_name' => 'Peony Cheddar Surprise',
@@ -37,7 +37,7 @@ class WishlistTableSeeder extends Seeder
            'last_grown' => '',
        ]);
 
-       DB::table('wishlist')->insert([
+       DB::table('wishlistPlants')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
            'common_name' => 'Gladiolus Black Beauty',
