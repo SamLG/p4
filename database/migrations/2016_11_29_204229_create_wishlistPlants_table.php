@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWishlistPlantsTable extends Migration
+class CreateWishlistplantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWishlistPlantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wishlistPlants', function (Blueprint $table) {
+        Schema::create('wishlistplants', function (Blueprint $table) {
 
             # Increments method will make a Primary, Auto-Incrementing field.
             # Most tables start off this way
@@ -42,6 +42,6 @@ class CreateWishlistPlantsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('wishlistPlants');
+        Schema::drop('wishlistplants');
     }
 }

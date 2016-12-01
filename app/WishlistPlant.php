@@ -4,7 +4,7 @@ namespace P4;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WishlistPlant extends Model
+class Wishlistplant extends Model
 {
     //
 }

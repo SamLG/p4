@@ -6,11 +6,18 @@
 *, *:before, *:after {
   box-sizing: inherit;
 }*/
+html,body {
+    /*I hate to use important but I can't for the life of me get rid of space on the left and right of my footer, no matter what I do*/
+    margin:0 !important;
+    padding:0 !important;
+    /*height: 100%;*/
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: url("../images/old-white-background.jpg") white;
     padding: 0;
-    margin: 0 0 100px;
+    /*margin-bottom: 100px;*/
+
 }
 
 header {
@@ -33,14 +40,13 @@ header {
     padding: .5em;
     border-radius: .5em;
 }
-.plant a:hover{
+.plants a:hover, .plants a:visited{
     color: black;
     text-decoration: none;
 }
 a:hover .eachPlant{
     background-color: grey;
 }
-
 .navbar-brand {
     height: 110px;
     width: auto;
@@ -55,8 +61,9 @@ main {
     padding: 10em 1em 1em 1em;
     overflow: auto;
     margin: 0 auto;
+    /*spacing between content and footer*/
+    margin-bottom: 100px;
 }
-
 main a {
     color: #000080;
 }
@@ -95,20 +102,27 @@ nav a:hover {
     color: black;
     background-color: rgba(185, 198, 212, 1);
 }
-
 footer {
     color: rgba(0, 51, 0, 1);
     background: rgba(208, 225, 208, 0.9);
-    /*width: 100%;*/
     text-align: center;
     padding: .5em;
-    /*added lines to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100px;
+    /*did not work for this site... added lines to make footer sticky http://mystrd.at/modern-clean-css-sticky-footer/*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    height: 60px;
     width: 100%;
 }
+/*sticky footer finally solved with flexbox https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/*/
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.Site-content {
+  flex: 1;
+}
+
 /*screen reader only styling adapted from: http://webaim.org/techniques/css/invisiblecontent/*/
 .sr-only {
         position:absolute;

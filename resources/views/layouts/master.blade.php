@@ -18,7 +18,7 @@
         {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
         @yield('head')
     </head>
-    <body class="container">
+    <body class="container-fluid Site">
         <header>
             <a href="#content" class="sr-only">skip to content</a>
             <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -45,15 +45,14 @@
               </div>
             </nav>
         </header>
-        <main id="content">
-            <section>
+        <main id="content" class="Site-content">
+            <!-- <section> -->
                 {{-- Main page content will be yielded here --}}
                 @yield('content')
-            </section>
-
+            <!-- </section> -->
         </main>
-        <footer>
-            <p>Created by SamGrise &copy; {{ date('Y') }}. Last Updated: November 27th 2016</p>
+        <footer class="footer">
+                <p>Created by SamGrise &copy; {{ date('Y') }}. Last Updated: November 27th 2016</p>
         </footer>
         {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
         @yield('body')

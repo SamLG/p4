@@ -18,19 +18,32 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Here is your garden!</h2>
 
-    <h3>My Plants</h3>
-    <div class='plant'>
-        @foreach($plants as $plant)
-            <a href="/plants/show/{{ $plant->id }}">
-                <div class='eachPlant'>
-                    <h4>{{ $plant->common_name }}</h4>
-                    <p>{{ $plant->description }}</p>
-                </div>
-            </a>
-        @endforeach
+    <div class=gardenPlants row>
+        <div class='plants col-md-6'>
+            <h3>My Plants</h3>
+            <a href='/plants/create'><button>Add Plant</button></a>
+            @foreach($plants as $plant)
+                <a href="/plants/show/{{ $plant->id }}">
+                    <div class='eachPlant'>
+                        <h4>{{ $plant->common_name }}</h4>
+                        <p>{{ $plant->description }}</p>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+        <div class='plants col-md-6'>
+            <h3>My Wishlist Plants</h3>
+            <a href='/wishlistplants/create'><button>Add Wishlist Plant</button></a>
+            @foreach($wishlistplants as $wishlistplant)
+                <a href="/wishlistplants/show/{{ $wishlistplant->id }}">
+                    <div class='eachPlant'>
+                        <h4>{{ $wishlistplant->common_name }}</h4>
+                        <p>{{ $wishlistplant->description }}</p>
+                    </div>
+                </a>
+            @endforeach
+        </div>
     </div>
-    <h3>My Wishlist Plants</h3>
-
 @stop
 
 

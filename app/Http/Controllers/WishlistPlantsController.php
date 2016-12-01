@@ -3,18 +3,19 @@
 namespace P4\Http\Controllers;
 
 use P4\Http\Controllers\Controller;
-use P4\WishlistPlant
+use P4\Wishlistplant;
 
-class WishlistPlantsController extends Controller
+class WishlistplantsController extends Controller
 {
     /**
      * Responds to requests to GET /
      * purpose: Show individual wishlist plant
      * Route::get('/wishlist/show/{id}', 'WishlistController@show')->name('wishlist.show');;
      */
-    public function show()
+    public function show($id)
     {
-        return view('wishlistPlants.index');
+        $wishlistplant = Wishlistplant::find($id);
+        return view('wishlistplants.show')->with(['wishlistplant'=>$wishlistplant]);
     }
     /**
      * Responds to requests to GET /
@@ -23,7 +24,7 @@ class WishlistPlantsController extends Controller
      */
     public function create()
     {
-        return view('wishlistPlants.create');
+        return view('wishlistplants.create');
     }
     /**
      * Responds to requests to POST /
@@ -32,7 +33,7 @@ class WishlistPlantsController extends Controller
      */
     public function store()
     {
-        return view('wishlistPlants.store');
+        return view('wishlistplants.store');
     }
     /**
      * Responds to requests to GET /
@@ -41,7 +42,7 @@ class WishlistPlantsController extends Controller
      */
     public function edit()
     {
-        return view('wishlistPlants.edit');
+        return view('wishlistplants.edit');
     }
     /**
      * Responds to requests to GET /
@@ -50,6 +51,6 @@ class WishlistPlantsController extends Controller
      */
     public function update()
     {
-        return view('wishlistPlants.update');
+        return view('wishlistplants.update');
     }
 } # end of class
