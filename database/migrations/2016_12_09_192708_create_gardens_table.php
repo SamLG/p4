@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWishlistplantsTable extends Migration
+class CreateGardensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWishlistplantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wishlistplants', function (Blueprint $table) {
+        Schema::create('gardens', function (Blueprint $table) {
 
             # Increments method will make a Primary, Auto-Incrementing field.
             # Most tables start off this way
@@ -24,15 +24,11 @@ class CreateWishlistplantsTable extends Migration
             $table->timestamps();
 
             # The rest of the fields...
-            $table->string('common_name');
-            $table->string('scientific_name')->nullable();
+            $table->string('name');
+            $table->string('location')->nullable();
             $table->text('description')->nullable();
-            $table->string('prior_success')->nullable();
-            $table->integer('min_zone')->nullable();
-            $table->integer('max_zone')->nullable();
-            $table->string('height')->nullable();
-            $table->string('bloomtime')->nullable();
-            $table->string('last_grown')->nullable();
+            $table->string('created')->nullable();
+            $table->integer('zone')->nullable();
         });
     }
 
@@ -43,6 +39,6 @@ class CreateWishlistplantsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('wishlistplants');
+        Schema::drop('gardens');
     }
 }
