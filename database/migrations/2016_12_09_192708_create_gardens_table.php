@@ -39,6 +39,6 @@ class CreateGardensTable extends Migration
      */
     public function down()
     {
-        // Schema::drop('gardens');
+        Schema::drop('gardens');
     }
 }
