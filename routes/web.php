@@ -16,7 +16,7 @@
 // });
 
 /*purpose: Homepage*/
-// Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('index');
 
 /*purpose: Listing of plants & wishlist plants*/
 Route::get('/gardens', 'GardenController@index')->name('garden.index');
@@ -102,4 +102,4 @@ Route::get('/', 'GardenController@index');
 Auth::routes();
 
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
-// Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
