@@ -18,8 +18,7 @@ class GardenController extends Controller
         // $plants = Plant::all();
         // $wishlistplants = Wishlistplant::all();
         // return view('garden.index')->with('plants',$plants)->with('wishlistplants',$wishlistplants);
-        return 'this works';
-        // return view('garden.index');
+        return view('garden.index');
     }
     // /**
     //  * Responds to requests to GET /
