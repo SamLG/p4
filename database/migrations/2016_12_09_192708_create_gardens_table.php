@@ -13,23 +13,23 @@ class CreateGardensTable extends Migration
      */
     public function up()
     {
-        Schema::create('gardens', function (Blueprint $table) {
-
-            # Increments method will make a Primary, Auto-Incrementing field.
-            # Most tables start off this way
-            $table->increments('id');
-
-            # This generates two columns: `created_at` and `updated_at` to
-            # keep track of changes to a row
-            $table->timestamps();
-
-            # The rest of the fields...
-            $table->string('name');
-            $table->string('location')->nullable();
-            $table->text('description')->nullable();
-            $table->string('created')->nullable();
-            $table->integer('zone')->nullable();
-        });
+        // Schema::create('gardens', function (Blueprint $table) {
+        //
+        //     # Increments method will make a Primary, Auto-Incrementing field.
+        //     # Most tables start off this way
+        //     $table->increments('id');
+        //
+        //     # This generates two columns: `created_at` and `updated_at` to
+        //     # keep track of changes to a row
+        //     $table->timestamps();
+        //
+        //     # The rest of the fields...
+        //     $table->string('name');
+        //     $table->string('location')->nullable();
+        //     $table->text('description')->nullable();
+        //     $table->string('created')->nullable();
+        //     $table->integer('zone')->nullable();
+        // });
     }
 
     /**

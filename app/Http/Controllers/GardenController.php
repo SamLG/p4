@@ -15,10 +15,10 @@ class GardenController extends Controller
      */
     public function index()
     {
-        // $plants = Plant::all();
-        // $wishlistplants = Wishlistplant::all();
-        return view('garden.index');
-// ->with('plants',$plants)->with('wishlistplants',$wishlistplants)
+        $plants = Plant::all();
+        $wishlistplants = Wishlistplant::all();
+        return view('garden.index')->with('plants',$plants)->with('wishlistplants',$wishlistplants);
+
         // return view('garden.index');
     }
     /**
