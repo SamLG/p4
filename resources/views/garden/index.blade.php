@@ -21,7 +21,7 @@ such as a page specific stylesheets.
     <div class=gardenPlants row>
         <div class='plants col-md-6'>
             <h3>My Plants</h3>
-            <a href='/plants/create'><button>Add Plant</button></a>
+            <!-- <a href='/plants/create'><button>Add Plant</button></a>
             @foreach($plants as $plant)
                 <a href="/plants/show/{{ $plant->id }}">
                     <div class='eachPlant'>
@@ -41,7 +41,7 @@ such as a page specific stylesheets.
                         <p>{{ $wishlistplant->description }}</p>
                     </div>
                 </a>
-            @endforeach
+            @endforeach -->
         </div>
     </div>
 @stop
