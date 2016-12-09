@@ -18,7 +18,7 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Here is your garden!</h2>
 
-    <div class=gardenPlants row>
+    <!-- <div class=gardenPlants row>
         <div class='plants col-md-6'>
             <h3>My Plants</h3>
             <a href='/plants/create'><button>Add Plant</button></a>
@@ -43,7 +43,7 @@ such as a page specific stylesheets.
                 </a>
             @endforeach
         </div>
-    </div>
+    </div> -->
 @stop
 
 
