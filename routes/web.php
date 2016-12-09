@@ -97,9 +97,6 @@ Route::get('/debug', function() {
 
 // };
 
-// Route::get('/', 'GardenController@index');
-
 Auth::routes();
 
-// Route::get('/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/home', 'HomeController@index');
