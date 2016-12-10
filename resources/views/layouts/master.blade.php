@@ -19,6 +19,9 @@
         @yield('head')
     </head>
     <body class="container-fluid Site">
+        @if(Session::get('flash_message') != null)
+            <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+        @endif
         <header>
             <a href="#content" class="sr-only">skip to content</a>
             <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -36,7 +39,7 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/gardens">My Gardens</a></li>
                     <!-- <li><a href="/plants">My Plants</a></li>
                     <li><a href="/wishlist">My Wishlist Plants</a></li> -->

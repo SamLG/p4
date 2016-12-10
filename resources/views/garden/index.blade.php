@@ -27,6 +27,8 @@ such as a page specific stylesheets.
                     <div class='eachPlant'>
                         <h4>{{ $plant->common_name }}</h4>
                         <p>{{ $plant->description }}</p>
+                        <a href='/plants/delete/{{ $plant-> id}}'><button>Delete</button></a>
+                        <a href='/plants/edit/{{ $plant-> id}}'><button>Edit</button></a>
                     </div>
                 </a>
             @endforeach
@@ -39,6 +41,8 @@ such as a page specific stylesheets.
                     <div class='eachPlant'>
                         <h4>{{ $wishlistplant->common_name }}</h4>
                         <p>{{ $wishlistplant->description }}</p>
+                        <a href='#'><button>Delete</button></a>
+                        <a href='#'><button>Edit</button></a>
                     </div>
                 </a>
             @endforeach

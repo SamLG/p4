@@ -31,10 +31,17 @@ Route::get('/plants/create', 'GardenController@create')->name('plants.create');
 Route::post('/plants/create', 'GardenController@store')->name('plants.store');
 
 /*purpose: Show form to edit plant*/
-Route::get('/plants/edit/{id}}', 'GardenController@edit')->name('plants.edit');
+Route::get('/plants/edit/{id}', 'GardenController@edit')->name('plants.edit');
 
 /*purpose: Process form to edit plant*/
-Route::put('/plants/edit/{id}', 'GardenController@update')->name('plants.update');
+Route::put('/plants/{id}', 'GardenController@update')->name('plants.update');
+
+/*purpose: Get route to confirm delete plant*/
+Route::get('/plants/delete/{id}', 'GardenController@delete')->name('plants.destroy');
+
+/*purpose: Get route to delete plant*/
+Route::delete('/plants/delete/{id}', 'GardenController@destroy')->name('plants.destroy');
+
 
 /*purpose: Show individual wishlist plant*/
 Route::get('/wishlistplants/show/{id}', 'WishlistPlantsController@show')->name('wishlistPlants.show');

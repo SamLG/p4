@@ -25,6 +25,7 @@ such as a page specific stylesheets.
         <div class='form-group'>
            <label>Common Name</label>
             <input
+                size='50'
                 type='text'
                 id='common_name'
                 name='common_name'
@@ -36,6 +37,7 @@ such as a page specific stylesheets.
         <div class='form-group'>
            <label>Scientific Name</label>
             <input
+                size='50'
                 type='text'
                 id='scientific_name'
                 name='scientific_name'
@@ -47,29 +49,33 @@ such as a page specific stylesheets.
 
         <div class='form-group'>
            <label>Description</label>
-           <input
-               type='text'
+           <br>
+           <textarea
+               cols='100'
+               rows='5'
                id='description'
                name='description'
-               value='{{ old('description', 'Beautiful plant') }}'
-           >
-           <div class='error'>{{ $errors->first('published') }}</div>
+           >{{ old('description', 'Beautiful plant') }}</textarea>
+
+           <div class='error'>{{ $errors->first('description') }}</div>
         </div>
 
         <div class='form-group'>
            <label>Success with Plant</label>
-           <input
-               type='text'
+           <textarea
+               cols='100'
+               rows='3'
                id='success'
                name='success'
-               value='{{ old('success', 'very good') }}'
-           >
+           >{{ old('description', 'very good') }}</textarea>
+
            <div class='error'>{{ $errors->first('success') }}</div>
         </div>
 
         <div class='form-group'>
            <label>Minimum Zone</label>
            <input
+               size='2'
                type='text'
                id='min_zone'
                name='min_zone'
@@ -81,6 +87,7 @@ such as a page specific stylesheets.
         <div class='form-group'>
            <label>Maximum Zone</label>
            <input
+               size='2'
                type='text'
                id='max_zone'
                name='max_zone'
@@ -103,6 +110,7 @@ such as a page specific stylesheets.
         <div class='form-group'>
            <label>Bloomtime</label>
            <input
+               size='50'
                type='text'
                id='bloomtime'
                name='bloomtime'

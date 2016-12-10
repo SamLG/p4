@@ -16,9 +16,159 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Edit your plant</h2>
+    <h2>Edit {{ $plant->common_name }} </h2>
 
-    <h3>plant</h3>
+    <form method='POST' action='/plants/{{ $plant->id }}'>
+
+        {{ method_field('PUT') }}
+
+        {{ csrf_field() }}
+
+        <input name='id' value='{{$plant->id}}' type='hidden'>
+
+        <div class='form-group'>
+            <label>Common Name:</label>
+            <input
+            size='50'
+            type='text'
+            id='common_name'
+            name='common_name'
+            value='{{ old('common_name', $plant->common_name) }}'
+            >
+            <div class='error'>{{ $errors->first('common_name') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Scientific Name</label>
+            <input
+                size='50'
+                type='text'
+                id='scientific_name'
+                name='scientific_name'
+                value='{{ old('scientific_name', $plant->scientific_name) }}'
+            >
+           <div class='error'>{{ $errors->first('scientific_name') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Description</label>
+           <br>
+           <textarea
+               cols='100'
+               rows='5'
+               id='description'
+               name='description'
+           >{{ old('description', $plant->description) }}</textarea>
+
+           <div class='error'>{{ $errors->first('description') }}</div>
+        </div>
+        <!-- <div class='form-group'>
+           <label>Description</label>
+           <input
+               type='text'
+               id='description'
+               name='description'
+               value='{{ old('description', $plant->description) }}'
+           >
+           <div class='error'>{{ $errors->first('description') }}</div>
+        </div> -->
+
+        <div class='form-group'>
+           <label>Success with Plant</label>
+           <br>
+           <textarea
+               cols='100'
+               rows='3'
+               id='success'
+               name='success'
+           >{{ old('success', $plant->success) }}</textarea>
+
+           <div class='error'>{{ $errors->first('success') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Minimum Zone</label>
+           <input
+               size='2'
+               type='text'
+               id='min_zone'
+               name='min_zone'
+               value='{{ old('min_zone', $plant->min_zone) }}'
+           >
+           <div class='error'>{{ $errors->first('min_zone') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Maximum Zone</label>
+           <input
+               size='2'
+               type='text'
+               id='max_zone'
+               name='max_zone'
+               value='{{ old('max_zone', $plant->max_zone) }}'
+           >
+           <div class='error'>{{ $errors->first('max_zone') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Height</label>
+           <input
+               type='text'
+               id='height'
+               name='height'
+               value='{{ old('height', $plant->height) }}'
+           >
+           <div class='error'>{{ $errors->first('height') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Bloomtime</label>
+           <input
+               size='50'
+               type='text'
+               id='bloomtime'
+               name='bloomtime'
+               value='{{ old('bloomtime', $plant->bloomtime) }}'
+           >
+           <div class='error'>{{ $errors->first('bloomtime') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Planted</label>
+           <input
+               type='text'
+               id='planted'
+               name='planted'
+               value='{{ old('planted', $plant->planted) }}'
+           >
+           <div class='error'>{{ $errors->first('planted') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Location</label>
+           <input
+               type='text'
+               id='location'
+               name='location'
+               value='{{ old('location', $plant->location) }}'
+           >
+           <div class='error'>{{ $errors->first('location') }}</div>
+        </div>
+
+        <div class='form-instructions'>
+            Common Name is required
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save changes</button>
+
+
+        <div class='error'>
+            @if(count($errors) > 0)
+                Please correct the errors above and try again.
+            @endif
+        </div>
+
+    </form>
 
 @stop
 
