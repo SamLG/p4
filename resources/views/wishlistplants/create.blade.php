@@ -18,13 +18,14 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Add a new wishlist plant</h2>
 
-    <form method='POST' action='/wishlistplants/create'>
+    <form method='POST' action='/gardens/{{ $garden-> id}}/wishlistplants/create'>
 
         {{ csrf_field() }}
 
         <div class='form-group'>
            <label>Common Name</label>
             <input
+                size='50'
                 type='text'
                 id='common_name'
                 name='common_name'
@@ -36,6 +37,7 @@ such as a page specific stylesheets.
         <div class='form-group'>
            <label>Scientific Name</label>
             <input
+                size='50'
                 type='text'
                 id='scientific_name'
                 name='scientific_name'
@@ -47,7 +49,10 @@ such as a page specific stylesheets.
 
         <div class='form-group'>
            <label>Description</label>
+           <br>
            <input
+               cols='100'
+               rows='5'
                type='text'
                id='description'
                name='description'
@@ -57,36 +62,40 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-           <label>Prior success with Plant</label>
-           <input
-               type='text'
-               id='prior_success'
-               name='prior_success'
-               value='{{ old('prior_success', 'very good') }}'
-           >
-           <div class='error'>{{ $errors->first('prior_success') }}</div>
+            <label>Prior success with Plant</label>
+            <input
+                cols='100'
+                rows='3'
+                type='text'
+                id='prior_success'
+                name='prior_success'
+                value='{{ old('prior_success', 'very good') }}'
+            >
+            <div class='error'>{{ $errors->first('prior_success') }}</div>
         </div>
 
         <div class='form-group'>
-           <label>Minimum Zone</label>
-           <input
-               type='text'
-               id='min_zone'
-               name='min_zone'
-               value='{{ old('min_zone', '5') }}'
-           >
-           <div class='error'>{{ $errors->first('min_zone') }}</div>
+            <label>Minimum Zone</label>
+            <input
+                size='2'
+                type='text'
+                id='min_zone'
+                name='min_zone'
+                value='{{ old('min_zone', '5') }}'
+            >
+            <div class='error'>{{ $errors->first('min_zone') }}</div>
         </div>
 
         <div class='form-group'>
-           <label>Maximum Zone</label>
-           <input
-               type='text'
-               id='max_zone'
-               name='max_zone'
-               value='{{ old('max_zone', '10') }}'
-           >
-           <div class='error'>{{ $errors->first('max_zone') }}</div>
+            <label>Maximum Zone</label>
+            <input
+                size='2'
+                type='text'
+                id='max_zone'
+                name='max_zone'
+                value='{{ old('max_zone', '10') }}'
+            >
+            <div class='error'>{{ $errors->first('max_zone') }}</div>
         </div>
 
         <div class='form-group'>
@@ -101,25 +110,26 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-           <label>Bloomtime</label>
-           <input
-               type='text'
-               id='bloomtime'
-               name='bloomtime'
-               value='{{ old('bloomtime', 'spring - fall') }}'
-           >
-           <div class='error'>{{ $errors->first('bloomtime') }}</div>
+            <label>Bloomtime</label>
+            <input
+                size='50'
+                type='text'
+                id='bloomtime'
+                name='bloomtime'
+                value='{{ old('bloomtime', 'spring - fall') }}'
+            >
+            <div class='error'>{{ $errors->first('bloomtime') }}</div>
         </div>
 
         <div class='form-group'>
-           <label>Last Grown, if ever</label>
-           <input
-               type='text'
-               id='last_grown'
-               name='last_grown'
-               value='{{ old('last_grown', '2016') }}'
-           >
-           <div class='error'>{{ $errors->first('last_grown') }}</div>
+            <label>Last Grown, if ever</label>
+            <input
+                type='text'
+                id='last_grown'
+                name='last_grown'
+                value='{{ old('last_grown', '2016') }}'
+            >
+            <div class='error'>{{ $errors->first('last_grown') }}</div>
         </div>
 
         <div class='form-instructions'>

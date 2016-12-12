@@ -16,9 +16,9 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Edit {{ $wishlistplant->common_name }}</h2>
+    <h2>Move {{ $wishlistplant->common_name }} to Wishlist</h2>
 
-    <form method='POST' action='/gardens/{{ $garden->id }}/wishlistplants/{{ $wishlistplant->id }}'>
+    <form method='POST' action='/gardens/{{ $garden-> id}}/wishlistplants/move/{{ $wishlistplant->id }}'>
 
         {{ method_field('PUT') }}
 
@@ -62,9 +62,19 @@ such as a page specific stylesheets.
 
            <div class='error'>{{ $errors->first('description') }}</div>
         </div>
+        <!-- <div class='form-group'>
+           <label>Description</label>
+           <input
+               type='text'
+               id='description'
+               name='description'
+               value='{{ old('description', $wishlistplant->description) }}'
+           >
+           <div class='error'>{{ $errors->first('description') }}</div>
+        </div> -->
 
         <div class='form-group'>
-           <label>Prior Success with Plant</label>
+           <label>Success with Plant</label>
            <br>
            <textarea
                cols='100'
@@ -124,21 +134,32 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-            <label>Last Grown, if ever</label>
-            <input
-                type='text'
-                id='last_grown'
-                name='last_grown'
-                value='{{ old('last_grown', $wishlistplant->last_grown) }}'
-            >
-            <div class='error'>{{ $errors->first('last_grown') }}</div>
+           <label>Planted</label>
+           <input
+               type='text'
+               id='planted'
+               name='planted'
+               value='{{ old('planted', ' ') }}'
+           >
+           <div class='error'>{{ $errors->first('planted') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Location</label>
+           <input
+               type='text'
+               id='location'
+               name='location'
+               value='{{ old('location', ' ') }}'
+           >
+           <div class='error'>{{ $errors->first('location') }}</div>
         </div>
 
         <div class='form-instructions'>
             Common Name is required
         </div>
 
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Move to Plants</button>
 
 
         <div class='error'>

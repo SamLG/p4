@@ -18,8 +18,72 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Here is your plant</h2>
 
-    <h3>{{ $plant->common_name }}</h3>
-    <p>{{ $plant->description }}</p>
+    <h3>{{ $plant->common_name }} ({{ $plant->scientific_name}})</h3>
+    <h4>Description</h4>
+    <p>
+        @if( $plant->description )
+            {{$plant->description}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Description</button></a>
+        @endif
+    </p>
+    <h4>Success</h4>
+    <p>
+        @if( $plant->success )
+            {{$plant->success}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Success</button></a>
+        @endif
+    </p>
+    <h4>USDA Zones</h4>
+    <p>
+        @if( $plant->min_zone )
+            {{$plant->min_zone}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Minimum</button></a>
+        @endif -
+        @if( $plant->max_zone )
+            {{$plant->max_zone}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Maximum</button></a>
+        @endif
+    </p>
+    <h4>Height</h4>
+    <p>
+        @if( $plant->height )
+            {{$plant->height}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Height</button></a>
+        @endif
+    </p>
+    <h4>Bloomtime</h4>
+    <p>
+        @if( $plant->bloomtime )
+            {{ $plant->bloomtime }}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Bloomtime</button></a>
+        @endif
+    </p>
+    <h4>Planted (when)</h4>
+    <p>
+        @if( $plant->planted )
+            {{$plant->planted}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Planted</button></a>
+        @endif
+    </p>
+    <h4>Location</h4>
+    <p>
+        @if( $plant->location )
+            {{$plant->location}}
+        @else
+            <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Location</button></a>
+        @endif
+    </p>
+    <br>
+    <a href='/gardens/{{$garden->id}}/plants/delete/{{ $plant-> id}}'><button>Delete</button></a>
+    <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Edit</button></a>
+    <a href='/gardens/{{$garden->id}}/plants/move/{{ $plant-> id}}'><button>Move to Wishlist</button></a>
 
 @stop
 

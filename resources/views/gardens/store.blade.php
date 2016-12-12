@@ -16,19 +16,10 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Confirm deletion of {{ $plant->common_name }} </h2>
+    <h2>Your plant has been added</h2>
 
-    <form method='POST' action='/gardens/{{$garden->id}}/plants/delete/{{ $plant->id }}'>
+    <h3>plant</h3>
 
-        {{ method_field('DELETE') }}
-
-        {{ csrf_field() }}
-
-        <h3>Are you sure you want to delete <em>{{ $plant->common_name }}</em>?</h3>
-
-        <input type='submit' value='Yes'>
-
-    </form>
 @stop
 
 

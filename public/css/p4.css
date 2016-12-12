@@ -14,6 +14,7 @@ html,body {
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
+    /*http://www.publicdomainpictures.net/view-image.php?image=42539&picture=fresh-green-leaves*/
     background: url("../images/fresh-green-leaves.jpg") white;
     padding: 0;
     /*margin-bottom: 100px;*/
@@ -32,7 +33,7 @@ header {
     can dictate z-index https://philipwalton.com/articles/what-no-one-told-you-about-z-index/*/
     z-index: 1;
 }
-.eachPlant {
+.each {
     color: black;
     border: solid black 1px;
     margin-top: .5em;

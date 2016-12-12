@@ -16,15 +16,15 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Confirm deletion of {{ $plant->common_name }} </h2>
+    <h2>Confirm transfer of {{ $plant->common_name }} to Wishlist</h2>
 
-    <form method='POST' action='/gardens/{{$garden->id}}/plants/delete/{{ $plant->id }}'>
+    <form method='POST' action='/gardens/{{ $garden->id }}/plants/remove/{{ $plant->id }}'>
 
         {{ method_field('DELETE') }}
 
         {{ csrf_field() }}
 
-        <h3>Are you sure you want to delete <em>{{ $plant->common_name }}</em>?</h3>
+        <h3>Are you sure you want to transfer <em>{{ $plant->common_name }}</em> to Wishlist?</h3>
 
         <input type='submit' value='Yes'>
 

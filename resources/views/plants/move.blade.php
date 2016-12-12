@@ -16,15 +16,15 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Edit {{ $wishlistplant->common_name }}</h2>
+    <h2>Move {{ $plant->common_name }} to Wishlist</h2>
 
-    <form method='POST' action='/gardens/{{ $garden->id }}/wishlistplants/{{ $wishlistplant->id }}'>
+    <form method='POST' action='/gardens/{{$garden->id}}/plants/move/{{ $plant->id }}'>
 
         {{ method_field('PUT') }}
 
         {{ csrf_field() }}
 
-        <input name='id' value='{{$wishlistplant->id}}' type='hidden'>
+        <input name='id' value='{{$plant->id}}' type='hidden'>
 
         <div class='form-group'>
             <label>Common Name:</label>
@@ -33,7 +33,7 @@ such as a page specific stylesheets.
             type='text'
             id='common_name'
             name='common_name'
-            value='{{ old('common_name', $wishlistplant->common_name) }}'
+            value='{{ old('common_name', $plant->common_name) }}'
             >
             <div class='error'>{{ $errors->first('common_name') }}</div>
         </div>
@@ -45,7 +45,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='scientific_name'
                 name='scientific_name'
-                value='{{ old('scientific_name', $wishlistplant->scientific_name) }}'
+                value='{{ old('scientific_name', $plant->scientific_name) }}'
             >
            <div class='error'>{{ $errors->first('scientific_name') }}</div>
         </div>
@@ -58,7 +58,7 @@ such as a page specific stylesheets.
                rows='5'
                id='description'
                name='description'
-           >{{ old('description', $wishlistplant->description) }}</textarea>
+           >{{ old('description', $plant->description) }}</textarea>
 
            <div class='error'>{{ $errors->first('description') }}</div>
         </div>
@@ -69,9 +69,9 @@ such as a page specific stylesheets.
            <textarea
                cols='100'
                rows='3'
-               id='prior_success'
-               name='prior_success'
-           >{{ old('prior_success', $wishlistplant->prior_success) }}</textarea>
+               id='success'
+               name='success'
+           >{{ old('success', $plant->success) }}</textarea>
 
            <div class='error'>{{ $errors->first('prior_success') }}</div>
         </div>
@@ -83,7 +83,7 @@ such as a page specific stylesheets.
                type='text'
                id='min_zone'
                name='min_zone'
-               value='{{ old('min_zone', $wishlistplant->min_zone) }}'
+               value='{{ old('min_zone', $plant->min_zone) }}'
            >
            <div class='error'>{{ $errors->first('min_zone') }}</div>
         </div>
@@ -95,7 +95,7 @@ such as a page specific stylesheets.
                type='text'
                id='max_zone'
                name='max_zone'
-               value='{{ old('max_zone', $wishlistplant->max_zone) }}'
+               value='{{ old('max_zone', $plant->max_zone) }}'
            >
            <div class='error'>{{ $errors->first('max_zone') }}</div>
         </div>
@@ -106,7 +106,7 @@ such as a page specific stylesheets.
                type='text'
                id='height'
                name='height'
-               value='{{ old('height', $wishlistplant->height) }}'
+               value='{{ old('height', $plant->height) }}'
            >
            <div class='error'>{{ $errors->first('height') }}</div>
         </div>
@@ -118,7 +118,7 @@ such as a page specific stylesheets.
                type='text'
                id='bloomtime'
                name='bloomtime'
-               value='{{ old('bloomtime', $wishlistplant->bloomtime) }}'
+               value='{{ old('bloomtime', $plant->bloomtime) }}'
            >
            <div class='error'>{{ $errors->first('bloomtime') }}</div>
         </div>
@@ -127,18 +127,18 @@ such as a page specific stylesheets.
             <label>Last Grown, if ever</label>
             <input
                 type='text'
-                id='last_grown'
-                name='last_grown'
-                value='{{ old('last_grown', $wishlistplant->last_grown) }}'
+                id='planted'
+                name='planted'
+                value='{{ old('planted', $plant->planted) }}'
             >
-            <div class='error'>{{ $errors->first('last_grown') }}</div>
+            <div class='error'>{{ $errors->first('planted') }}</div>
         </div>
 
         <div class='form-instructions'>
             Common Name is required
         </div>
 
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Move to Wishlist</button>
 
 
         <div class='error'>

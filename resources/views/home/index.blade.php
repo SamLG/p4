@@ -17,9 +17,18 @@ such as a page specific stylesheets.
 
 @section('content')
     <h2>Manage your gardens!</h2>
-
-    <h3>My Garden</h3>
-    <a href="/gardens">View My Garden</a>
+    <h3>My Gardens</h3>
+    <a href='/gardens/create'><button>Add Garden</button></a>
+    @foreach($gardens as $garden)
+        <a href='/gardens/show/{{ $garden->id }}'>
+            <div class='each'>
+                <h4>{{ $garden->name }}</h4>
+                <p>{{ $garden->description }}</p>
+                <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete</button></a>
+                <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit</button></a>
+            </div>
+        </a>
+    @endforeach
 
 @stop
 

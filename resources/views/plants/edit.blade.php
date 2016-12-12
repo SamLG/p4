@@ -18,7 +18,7 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Edit {{ $plant->common_name }} </h2>
 
-    <form method='POST' action='/plants/{{ $plant->id }}'>
+    <form method='POST' action='/gardens/{{$garden->id}}/plants/{{ $plant->id }}'>
 
         {{ method_field('PUT') }}
 

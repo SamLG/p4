@@ -4,7 +4,7 @@ namespace P4\Http\Controllers;
 
 use P4\Http\Controllers\Controller;
 use DB;
-use P4\Plant;
+use P4\Garden;
 
 class HomeController extends Controller
 {
@@ -44,8 +44,8 @@ class HomeController extends Controller
 
         // $plants = Plant::all();
         // return view('home.index')->with('plants',$plants);
-
-        return view('home.index');
+        $gardens = Garden::all();
+        return view('home.index')->with('gardens',$gardens);
 
     }
 

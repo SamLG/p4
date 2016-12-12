@@ -18,9 +18,11 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Add new plant</h2>
 
-    <form method='POST' action='/plants/create'>
+    <form method='POST' action='/gardens/{{ $garden-> id}}/plants/create'>
 
         {{ csrf_field() }}
+
+        <!-- <input name='garden_id' value='{{$garden->id}}' type='hidden'> -->
 
         <div class='form-group'>
            <label>Common Name</label>
@@ -62,6 +64,7 @@ such as a page specific stylesheets.
 
         <div class='form-group'>
            <label>Success with Plant</label>
+           <br>
            <textarea
                cols='100'
                rows='3'

@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GardensTableSeeder::class);
         $this->call(PlantsTableSeeder::class);
         $this->call(WishlistplantsTableSeeder::class);
+        $this->call(GardenPlantTableSeeder::class); # pivot table
+        $this->call(GardenWishlistplantTableSeeder::class); # pivot table
     }
 }

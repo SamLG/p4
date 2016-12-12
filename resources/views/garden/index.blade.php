@@ -24,11 +24,12 @@ such as a page specific stylesheets.
             <a href='/plants/create'><button>Add Plant</button></a>
             @foreach($plants as $plant)
                 <a href="/plants/show/{{ $plant->id }}">
-                    <div class='eachPlant'>
+                    <div class='each'>
                         <h4>{{ $plant->common_name }}</h4>
                         <p>{{ $plant->description }}</p>
                         <a href='/plants/delete/{{ $plant-> id}}'><button>Delete</button></a>
                         <a href='/plants/edit/{{ $plant-> id}}'><button>Edit</button></a>
+                        <a href='/plants/move/{{ $plant-> id}}'><button>Move to Wishlist</button></a>
                     </div>
                 </a>
             @endforeach
@@ -38,11 +39,12 @@ such as a page specific stylesheets.
             <a href='/wishlistplants/create'><button>Add Wishlist Plant</button></a>
             @foreach($wishlistplants as $wishlistplant)
                 <a href="/wishlistplants/show/{{ $wishlistplant->id }}">
-                    <div class='eachPlant'>
+                    <div class='each'>
                         <h4>{{ $wishlistplant->common_name }}</h4>
                         <p>{{ $wishlistplant->description }}</p>
-                        <a href='#'><button>Delete</button></a>
-                        <a href='#'><button>Edit</button></a>
+                        <a href='/wishlistplants/delete/{{ $wishlistplant-> id}}'><button>Delete</button></a>
+                        <a href='/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Edit</button></a>
+                        <a href='/wishlistplants/move/{{ $wishlistplant-> id}}'><button>Add to Plants</button></a>
                     </div>
                 </a>
             @endforeach
