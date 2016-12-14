@@ -62,16 +62,17 @@ such as a page specific stylesheets.
 
            <div class='error'>{{ $errors->first('description') }}</div>
         </div>
-        <!-- <div class='form-group'>
-           <label>Description</label>
+
+        <div class='form-group'>
+           <label>Image</label>
            <input
                type='text'
-               id='description'
-               name='description'
-               value='{{ old('description', $wishlistplant->description) }}'
+               id='image'
+               name='image'
+               value='{{ old('image', $wishlistplant->image) }}'
            >
-           <div class='error'>{{ $errors->first('description') }}</div>
-        </div> -->
+           <div class='error'>{{ $errors->first('image') }}</div>
+        </div>
 
         <div class='form-group'>
            <label>Success with Plant</label>

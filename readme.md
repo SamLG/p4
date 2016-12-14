@@ -1,27 +1,22 @@
-# Laravel PHP Framework
+# Project 4 dwa15
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://greenthumb.samgrise.me/>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Description
+A site that allows you to create and manage gardens. In those gardens you can also create and manage plants and a wishlist. You are able to create a garden plan with an image and drawing locations for plants, then you can choose plants for those locations. The site uses Laravel framework, forms, and jcanvas.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Demo
+<#>
 
-## Official Documentation
+## Details for teaching team
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Outside code
+* background image from http://www.publicdomainpictures.net/view-image.php?image=42539&picture=fresh-green-leaves
+* all other images used have their urls included
+* Bootstrap: http://getbootstrap.com/css/#overview
+* Bootstrap cdn: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+* Laravel PHP Framework
+* css code to make footer sticky flexbox https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+* css code for screen reader only styling http://webaim.org/techniques/css/invisiblecontent/

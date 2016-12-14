@@ -67,7 +67,7 @@
             <!-- </section> -->
         </main>
         <footer class="footer">
-                <p>Created by SamGrise &copy; {{ date('Y') }}. Last Updated: November 27th 2016</p>
+                <p>Created by SamGrise &copy; {{ date('Y') }}. Last Updated: December 14th 2016</p>
         </footer>
         {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
         @yield('body')

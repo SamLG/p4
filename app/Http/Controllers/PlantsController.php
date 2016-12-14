@@ -71,6 +71,7 @@ class PlantsController extends Controller
            'common_name' => 'required',
            'min_zone' => 'zone_check:min_zone,max_zone',
            'location' => 'numeric',
+           'image' => 'url',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
@@ -88,6 +89,7 @@ class PlantsController extends Controller
        $plant->common_name = $request->input('common_name');
        $plant->scientific_name = $request->input('scientific_name');
        $plant->description = $request->input('description');
+       $plant->image = $request->input('image');
        $plant->success = $request->input('success');
        $plant->min_zone = $request->input('min_zone');
        $plant->max_zone = $request->input('max_zone');
@@ -137,6 +139,7 @@ class PlantsController extends Controller
            'common_name' => 'required',
            'min_zone' => 'zone_check:min_zone,max_zone',
            'location' => 'numeric',
+           'image' => 'url',
 
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
@@ -159,6 +162,7 @@ class PlantsController extends Controller
        $plant->common_name = $request->input('common_name');
        $plant->scientific_name = $request->input('scientific_name');
        $plant->description = $request->input('description');
+       $plant->image = $request->input('image');
        $plant->success = $request->input('success');
        $plant->min_zone = $request->input('min_zone');
        $plant->max_zone = $request->input('max_zone');
@@ -250,7 +254,7 @@ class PlantsController extends Controller
            'common_name' => 'required',
            'min_zone' => 'zone_check:min_zone,max_zone',
            'location' => 'numeric',
-
+           'image' => 'url',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
@@ -267,6 +271,7 @@ class PlantsController extends Controller
        $wishlistplant->common_name = $request->input('common_name');
        $wishlistplant->scientific_name = $request->input('scientific_name');
        $wishlistplant->description = $request->input('description');
+       $wishlistplant->image = $request->input('image');
        $wishlistplant->prior_success = $request->input('success');
        $wishlistplant->min_zone = $request->input('min_zone');
        $wishlistplant->max_zone = $request->input('max_zone');

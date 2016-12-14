@@ -16,6 +16,8 @@ such as a page specific stylesheets.
 
 
 @section('content')
+    <img alt="plant" class="plantImage" src="{{ $wishlistplant->image }}"/>
+
     <h2>Here is your wishlist plant</h2>
 
     <h3>{{ $wishlistplant->common_name }} ({{ $wishlistplant->scientific_name}})</h3>

@@ -131,13 +131,18 @@ footer {
 .garden {
     overflow: auto;
 }
-/*canvas {
-    background-color: grey;
-}*/
-/*img.gardenImage {
-    height: 300px;
-    width: 300px;
-}*/
+.plantImage {
+    float: right;
+    height: 200px;
+}
+.gardenShow {
+    height: 50px;
+}
+.gardenImage {
+    float: right;
+    height: 100px;
+    width: 100px;
+}
 .error {
     color: red;
     font-style: italic;

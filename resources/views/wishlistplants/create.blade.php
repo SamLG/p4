@@ -29,7 +29,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='common_name'
                 name='common_name'
-                value='{{ old('common_name', 'Shasta Daisy') }}'
+                value='{{ old('common_name', '') }}'
             >
            <div class='error'>{{ $errors->first('common_name') }}</div>
         </div>
@@ -41,7 +41,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='scientific_name'
                 name='scientific_name'
-                value='{{ old('scientific_name', 'Leucanthemum × superbum') }}'
+                value='{{ old('scientific_name', '') }}'
             >
            <div class='error'>{{ $errors->first('scientific_name') }}</div>
         </div>
@@ -50,27 +50,36 @@ such as a page specific stylesheets.
         <div class='form-group'>
            <label>Description</label>
            <br>
-           <input
+           <textarea
                cols='100'
                rows='5'
-               type='text'
                id='description'
                name='description'
-               value='{{ old('description', 'Beautiful plant') }}'
-           >
+           >{{ old('description', '') }}</textarea>
            <div class='error'>{{ $errors->first('published') }}</div>
         </div>
 
         <div class='form-group'>
+           <label>Image</label>
+           <input
+               type='text'
+               id='image'
+               name='image'
+               value='{{ old('image', '') }}'
+           >
+           <div class='error'>{{ $errors->first('image') }}</div>
+        </div>
+
+        <div class='form-group'>
             <label>Prior success with Plant</label>
-            <input
+            <br>
+            <textarea
                 cols='100'
                 rows='3'
-                type='text'
                 id='prior_success'
                 name='prior_success'
-                value='{{ old('prior_success', 'very good') }}'
-            >
+            >{{ old('prior_success', '') }}</textarea>
+
             <div class='error'>{{ $errors->first('prior_success') }}</div>
         </div>
 
@@ -104,7 +113,7 @@ such as a page specific stylesheets.
                type='text'
                id='height'
                name='height'
-               value='{{ old('height', '3ft') }}'
+               value='{{ old('height', '') }}'
            >
            <div class='error'>{{ $errors->first('height') }}</div>
         </div>
@@ -116,7 +125,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='bloomtime'
                 name='bloomtime'
-                value='{{ old('bloomtime', 'spring - fall') }}'
+                value='{{ old('bloomtime', '') }}'
             >
             <div class='error'>{{ $errors->first('bloomtime') }}</div>
         </div>
@@ -127,7 +136,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='last_grown'
                 name='last_grown'
-                value='{{ old('last_grown', '2016') }}'
+                value='{{ old('last_grown', '') }}'
             >
             <div class='error'>{{ $errors->first('last_grown') }}</div>
         </div>

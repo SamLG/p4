@@ -64,6 +64,17 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
+           <label>Image</label>
+           <input
+               type='text'
+               id='image'
+               name='image'
+               value='{{ old('image', $plant->image) }}'
+           >
+           <div class='error'>{{ $errors->first('image') }}</div>
+        </div>
+
+        <div class='form-group'>
            <label>Prior Success with Plant</label>
            <br>
            <textarea

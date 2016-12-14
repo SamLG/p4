@@ -41,7 +41,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='name'
                 name='name'
-                value='{{ old('name', 'Side Garden') }}'
+                value='{{ old('name', '') }}'
             >
            <div class='error'>{{ $errors->first('name') }}</div>
         </div>
@@ -53,7 +53,7 @@ such as a page specific stylesheets.
                 type='text'
                 id='location'
                 name='location'
-                value='{{ old('location', 'Side of house') }}'
+                value='{{ old('location', '') }}'
             >
            <div class='error'>{{ $errors->first('location') }}</div>
         </div>
@@ -67,7 +67,7 @@ such as a page specific stylesheets.
                rows='5'
                id='description'
                name='description'
-           >{{ old('description', 'lovely garden') }}</textarea>
+           >{{ old('description', '') }}</textarea>
 
            <div class='error'>{{ $errors->first('description') }}</div>
         </div>
@@ -101,7 +101,7 @@ such as a page specific stylesheets.
                type='text'
                id='image'
                name='image'
-               value='{{ old('image', 'http://teaone.net/uploads/fotos/how-to-design-your-backyard-landscape_989_900_696.jpg') }}'
+               value='{{ old('image', '') }}'
            >
            <div class='error'>{{ $errors->first('image') }}</div>
         </div>

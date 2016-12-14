@@ -85,6 +85,7 @@ such as a page specific stylesheets.
             @foreach($garden->plants as $plant)
                 <a href="/gardens/{{ $garden-> id}}/plants/show/{{ $plant->id }}">
                     <div class='each'>
+                        <img alt="plant" class="plantImage gardenShow" src="{{ $plant->image }}"/>
                         <h4>{{ $plant->common_name }}</h4>
                         <p>{{ $plant->description }}</p>
                         <a href='/gardens/{{ $garden-> id}}/plants/delete/{{ $plant-> id}}'><button>Delete</button></a>
@@ -100,6 +101,7 @@ such as a page specific stylesheets.
             @foreach($garden->wishlistplants as $wishlistplant)
                 <a href="/gardens/{{ $garden-> id}}/wishlistplants/show/{{ $wishlistplant->id }}">
                     <div class='each'>
+                        <img alt="plant" class="plantImage gardenShow" src="{{ $wishlistplant->image }}"/>
                         <h4>{{ $wishlistplant->common_name }}</h4>
                         <p>{{ $wishlistplant->description }}</p>
                         <a href='/gardens/{{ $garden-> id}}/wishlistplants/delete/{{ $wishlistplant-> id}}'><button>Delete</button></a>
