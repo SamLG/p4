@@ -12,12 +12,26 @@ use P4\Wishlistplant;
 use P4\Garden;
 use Session;
 
-class GardenController extends Controller
+class PlantsController extends Controller
 {
+    function zones(){
+        $usda_zones;
+        for ($i=1; $i <= 13; $i++) {
+            $usda_zones[] = $i.'a';
+            $usda_zones[] = $i.'b';
+        }
+        return $usda_zones;
+    }
+    function messages(){
+        $messages = [
+            'zone_check' => 'minimum zone must be smaller than maximum zone',
+        ];
+        return $messages;
+    }
     /**
      * Responds to requests to GET /
      * purpose: Show individual plant
-     * Route::get('/gardens/show/{id}', 'GardenController@show')->name('plants.show');
+     * Route::get('/gardens/show/{id}', 'PlantsController@show')->name('plants.show');
      */
     public function show($garden_id, $id)
     {
@@ -28,12 +42,13 @@ class GardenController extends Controller
             Session::flash('flash_message','plant not found.');
             return redirect('/gardens/show/'.$garden_id);
         }
+
         return view('plants.show')->with(['plant'=>$plant])->with(['garden'=>$garden]);
     }
     /**
      * Responds to requests to GET /
      * purpose: Show form to add plant
-     * Route::post('/gardens/create', 'GardenController@create')->name('plants.create');
+     * Route::post('/gardens/create', 'PlantsController@create')->name('plants.create');
      */
     public function create($garden_id)
     {
@@ -42,22 +57,23 @@ class GardenController extends Controller
             Session::flash('flash_message','garden not found.');
             return redirect('/home');
         }
-        return view('plants.create')->with(['garden'=>$garden]);
+        return view('plants.create')->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
     }
     /**
      * Responds to requests to POST /
      * purpose: Process form to add plant
-     * Route::post('/gardens/create', 'GardenController@store')->name('plants.store');
+     * Route::post('/gardens/create', 'PlantsController@store')->name('plants.store');
      */
     public function store($garden_id, Request $request)
     {
         # Validate
        $this->validate($request, [
            'common_name' => 'required',
+           'min_zone' => 'zone_check:min_zone,max_zone'
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
-       ]);
+    ], $this->messages());
        # If there were errors, Laravel will redirect the
        # user back to the page that submitted this request
        # The validator will tack on the form data to the request
@@ -95,7 +111,7 @@ class GardenController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to edit plant
-     * Route::get('/gardens/edit/{id}}', 'GardenController@edit')->name('plants.edit');
+     * Route::get('/gardens/edit/{id}}', 'PlantsController@edit')->name('plants.edit');
      */
     public function edit($garden_id, $id)
     {
@@ -105,23 +121,24 @@ class GardenController extends Controller
             Session::flash('flash_message','plant not found.');
             return redirect('/gardens/show/'.$garden_id);
         }
-        return view('plants.edit')->with(['plant'=>$plant])->with(['garden'=>$garden]);
+        return view('plants.edit')->with(['plant'=>$plant])->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
         // return view('plants.edit');
     }
     /**
      * Responds to requests to POST /
      * purpose: Process form to edit plant
-     * Route::put('/gardens/{id}', 'GardenController@update')->name('plants.update');
+     * Route::put('/gardens/{id}', 'PlantsController@update')->name('plants.update');
      */
     public function update(Request $request, $garden_id, $id)
     {
         # Validate
        $this->validate($request, [
            'common_name' => 'required',
+           'min_zone' => 'zone_check:min_zone,max_zone',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
-       ]);
+    ], $this->messages());
        # If there were errors, Laravel will redirect the
        # user back to the page that submitted this request
        # The validator will tack on the form data to the request
@@ -198,7 +215,7 @@ class GardenController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to move plant to wishlist
-     * Route::get('/gardens/move/{id}}', 'GardenController@edit')->name('plants.move');
+     * Route::get('/gardens/move/{id}}', 'PlantsController@edit')->name('plants.move');
      */
     public function move($garden_id, $id){
         $garden = Garden::find($garden_id);
@@ -208,7 +225,7 @@ class GardenController extends Controller
             Session::flash('flash_message','plant not found.');
             return redirect('/gardens/show/'.$garden_id);
         }
-        return view('plants.move')->with(['plant'=>$plant])->with(['garden'=>$garden]);
+        return view('plants.move')->with(['plant'=>$plant])->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
     }
 
     /**
@@ -228,10 +245,11 @@ class GardenController extends Controller
         # Validate
        $this->validate($request, [
            'common_name' => 'required',
+           'min_zone' => 'zone_check:min_zone,max_zone',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
-       ]);
+    ], $this->messages());
        # If there were errors, Laravel will redirect the
        # user back to the page that submitted this request
        # The validator will tack on the form data to the request

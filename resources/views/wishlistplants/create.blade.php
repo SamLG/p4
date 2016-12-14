@@ -74,28 +74,28 @@ such as a page specific stylesheets.
             <div class='error'>{{ $errors->first('prior_success') }}</div>
         </div>
 
-        <div class='form-group'>
-            <label>Minimum Zone</label>
-            <input
-                size='2'
-                type='text'
-                id='min_zone'
-                name='min_zone'
-                value='{{ old('min_zone', '5') }}'
-            >
-            <div class='error'>{{ $errors->first('min_zone') }}</div>
+        <div class="form-group">
+            <label for='min_zone'>Minimum Zone</label>
+            <select id='min_zone' name='min_zone'>
+                @foreach($usda_zones as $usda_zone)
+                     <option value='{{ $usda_zone }}'>
+                         {{$usda_zone}}
+                     </option>
+                 @endforeach
+            </select>
+           <div class='error'>{{ $errors->first('min_zone') }}</div>
         </div>
 
-        <div class='form-group'>
-            <label>Maximum Zone</label>
-            <input
-                size='2'
-                type='text'
-                id='max_zone'
-                name='max_zone'
-                value='{{ old('max_zone', '10') }}'
-            >
-            <div class='error'>{{ $errors->first('max_zone') }}</div>
+        <div class="form-group">
+            <label for='max_zone'>Maximum Zone</label>
+            <select id='max_zone' name='max_zone'>
+                @foreach($usda_zones as $usda_zone)
+                     <option value='{{ $usda_zone }}'>
+                         {{$usda_zone}}
+                     </option>
+                 @endforeach
+            </select>
+           <div class='error'>{{ $errors->first('max_zone') }}</div>
         </div>
 
         <div class='form-group'>
@@ -136,7 +136,7 @@ such as a page specific stylesheets.
             Common Name is required
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Plant</button>
+        <button type="submit" class="btn btn-primary">Add Plant to Wishlist</button>
 
         {{--
         <ul class=''>

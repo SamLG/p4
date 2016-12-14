@@ -115,6 +115,11 @@ footer {
     height: 60px;
     width: 100%;
 }
+.error {
+    color: red;
+    font-style: italic;
+}
+
 /*sticky footer finally solved with flexbox https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/*/
 .Site {
   display: flex;

@@ -74,15 +74,15 @@ such as a page specific stylesheets.
            <div class='error'>{{ $errors->first('created') }}</div>
         </div>
 
-        <div class='form-group'>
-           <label>USDA Zone</label>
-           <input
-               size='2'
-               type='text'
-               id='zone'
-               name='zone'
-               value='{{ old('zone', $garden->zone) }}'
-           >
+        <div class="form-group">
+            <label for='zone'>USDA Zones</label>
+            <select id='zone' name='zone'>
+                @foreach($usda_zones as $usda_zone)
+                     <option value='{{ $usda_zone }}' {{ ($garden->zone == $usda_zone) ? 'SELECTED' : '' }}>
+                         {{$usda_zone}}
+                     </option>
+                 @endforeach
+            </select>
            <div class='error'>{{ $errors->first('zone') }}</div>
         </div>
 

@@ -15,10 +15,24 @@ use Session;
 
 class WishlistplantsController extends Controller
 {
+    function zones(){
+        $usda_zones;
+        for ($i=1; $i <= 13; $i++) {
+            $usda_zones[] = $i.'a';
+            $usda_zones[] = $i.'b';
+        }
+        return $usda_zones;
+    }
+    function messages(){
+        $messages = [
+            'zone_check' => 'minimum zone must be smaller than maximum zone',
+        ];
+        return $messages;
+    }
     /**
      * Responds to requests to GET /
      * purpose: Show individual wishlist plant
-     * Route::get('/wishlist/show/{id}', 'WishlistController@show')->name('wishlist.show');;
+     * Route::get('/wishlist/show/{id}', 'WishlistplantsController@show')->name('wishlist.show');;
      */
     public function show($garden_id, $id)
     {
@@ -33,7 +47,7 @@ class WishlistplantsController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to add wishlist plant
-     * Route::get('/wishlist/create', 'WishlistController@create')->name('wishlist.create');
+     * Route::get('/wishlist/create', 'WishlistplantsController@create')->name('wishlist.create');
      */
     public function create($garden_id)
     {
@@ -42,22 +56,23 @@ class WishlistplantsController extends Controller
             Session::flash('flash_message','garden not found.');
             return redirect('/home');
         }
-        return view('wishlistplants.create')->with(['garden'=>$garden]);
+        return view('wishlistplants.create')->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
     }
     /**
      * Responds to requests to POST /
      * purpose: Process form to add wishlist plant
-     * Route::post('/wishlist/create', 'WishlistController@store')->name('wishlist.store');
+     * Route::post('/wishlist/create', 'WishlistplantsController@store')->name('wishlist.store');
      */
     public function store($garden_id, Request $request)
     {
         # Validate
         $this->validate($request, [
             'common_name' => 'required',
+            'min_zone' => 'zone_check:min_zone,max_zone',
             //    'published' => 'required|min:4|numeric',
             //    'cover' => 'required|url',
             //    'purchase_link' => 'required|url',
-        ]);
+        ], $this->messages());
         # If there were errors, Laravel will redirect the
         # user back to the page that submitted this request
         # The validator will tack on the form data to the request
@@ -92,7 +107,7 @@ class WishlistplantsController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to edit wishlist plant
-     * Route::get('/wishlist/edit/{id}', 'WishlistController@edit')->name('wishlist.edit');
+     * Route::get('/wishlist/edit/{id}', 'WishlistplantsController@edit')->name('wishlist.edit');
      */
     public function edit($garden_id, $id)
     {
@@ -103,23 +118,24 @@ class WishlistplantsController extends Controller
             Session::flash('flash_message','wishlistplant not found.');
             return redirect('/gardens/show/'.$garden_id);
         }
-        return view('wishlistplants.edit')->with(['wishlistplant'=>$wishlistplant])->with(['garden'=>$garden]);
+        return view('wishlistplants.edit')->with(['wishlistplant'=>$wishlistplant])->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
         // return view('wishlistplants.edit');
     }
     /**
      * Responds to requests to GET /
      * purpose: Process form to edit wishlist plant
-     * Route::put('/wishlist/edit/{id}', 'WishlistController@update')->name('wishlist.update');
+     * Route::put('/wishlist/edit/{id}', 'WishlistplantsController@update')->name('wishlist.update');
      */
     public function update(Request $request, $garden_id, $id)
     {
         # Validate
        $this->validate($request, [
            'common_name' => 'required',
+           'min_zone' => 'zone_check:min_zone,max_zone',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
-       ]);
+    ], $this->messages());
        # If there were errors, Laravel will redirect the
        # user back to the page that submitted this request
        # The validator will tack on the form data to the request
@@ -194,7 +210,7 @@ class WishlistplantsController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to move plant to wishlist
-     * Route::get('/gardens/move/{id}}', 'GardenController@edit')->name('plants.move');
+     * Route::get('/gardens/move/{id}}', 'WishlistplantsController@edit')->name('plants.move');
      */
     public function move($garden_id, $id)
     {
@@ -205,7 +221,7 @@ class WishlistplantsController extends Controller
             Session::flash('flash_message','wishlistplant not found.');
             return redirect('/gardens/show/'.$garden_id);
         }
-        return view('wishlistplants.move')->with(['wishlistplant'=>$wishlistplant])->with(['garden'=>$garden]);
+        return view('wishlistplants.move')->with(['wishlistplant'=>$wishlistplant])->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
     }
 
     /**
@@ -225,10 +241,11 @@ class WishlistplantsController extends Controller
         # Validate
        $this->validate($request, [
            'common_name' => 'required',
+           'min_zone' => 'zone_check:min_zone,max_zone',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
-       ]);
+    ], $this->messages());
        # If there were errors, Laravel will redirect the
        # user back to the page that submitted this request
        # The validator will tack on the form data to the request
@@ -261,7 +278,7 @@ class WishlistplantsController extends Controller
         // $plant->delete();
         # Finish
         // Session::flash('flash_message', $plant->common_name.' was moved to wishlist.');
-        return view('wishlistplants.remove')->with(['wishlistplant' => $wishlistplant])->with(['garden' => $garden]);
+        return view('wishlistplants.remove')->with(['wishlistplant'=>$wishlistplant])->with(['garden'=>$garden]);
     }
 
     /**

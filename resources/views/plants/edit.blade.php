@@ -62,16 +62,6 @@ such as a page specific stylesheets.
 
            <div class='error'>{{ $errors->first('description') }}</div>
         </div>
-        <!-- <div class='form-group'>
-           <label>Description</label>
-           <input
-               type='text'
-               id='description'
-               name='description'
-               value='{{ old('description', $plant->description) }}'
-           >
-           <div class='error'>{{ $errors->first('description') }}</div>
-        </div> -->
 
         <div class='form-group'>
            <label>Success with Plant</label>
@@ -86,27 +76,27 @@ such as a page specific stylesheets.
            <div class='error'>{{ $errors->first('success') }}</div>
         </div>
 
-        <div class='form-group'>
-           <label>Minimum Zone</label>
-           <input
-               size='2'
-               type='text'
-               id='min_zone'
-               name='min_zone'
-               value='{{ old('min_zone', $plant->min_zone) }}'
-           >
+        <div class="form-group">
+            <label for='min_zone'>Minimum Zone</label>
+            <select id='min_zone' name='min_zone'>
+                @foreach($usda_zones as $usda_zone)
+                     <option value='{{ $usda_zone }}' {{ ($plant->min_zone == $usda_zone) ? 'SELECTED' : '' }}>
+                         {{$usda_zone}}
+                     </option>
+                 @endforeach
+            </select>
            <div class='error'>{{ $errors->first('min_zone') }}</div>
         </div>
 
-        <div class='form-group'>
-           <label>Maximum Zone</label>
-           <input
-               size='2'
-               type='text'
-               id='max_zone'
-               name='max_zone'
-               value='{{ old('max_zone', $plant->max_zone) }}'
-           >
+        <div class="form-group">
+            <label for='max_zone'>Maximum Zone</label>
+            <select id='max_zone' name='max_zone'>
+                @foreach($usda_zones as $usda_zone)
+                     <option value='{{ $usda_zone }}' {{ ($plant->max_zone == $usda_zone) ? 'SELECTED' : '' }}>
+                         {{$usda_zone}}
+                     </option>
+                 @endforeach
+            </select>
            <div class='error'>{{ $errors->first('max_zone') }}</div>
         </div>
 

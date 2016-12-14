@@ -18,6 +18,8 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Add new garden</h2>
 
+    <canvas width="620" height="441" id="canvas1"></canvas>
+
     <form method='POST' action='/gardens/create'>
 
         {{ csrf_field() }}
@@ -71,20 +73,31 @@ such as a page specific stylesheets.
            <div class='error'>{{ $errors->first('created') }}</div>
         </div>
 
-        <div class='form-group'>
-           <label>USDA Zone</label>
-           <input
-               size='2'
-               type='text'
-               id='zone'
-               name='zone'
-               value='{{ old('zone', '5') }}'
-           >
+        <div class="form-group">
+            <label for='zone'>USDA Zones</label>
+            <select id='zone' name='zone'>
+                @foreach($usda_zones as $usda_zone)
+                     <option value='{{ $usda_zone }}'>
+                         {{$usda_zone}}
+                     </option>
+                 @endforeach
+            </select>
            <div class='error'>{{ $errors->first('zone') }}</div>
         </div>
 
+        <div class='form-group'>
+           <label>Garden Plan</label>
+           <input
+               type='text'
+               id='image'
+               name='image'
+               value='{{ old('image', 'http://teaone.net/uploads/fotos/how-to-design-your-backyard-landscape_989_900_696.jpg') }}'
+           >
+           <div class='error'>{{ $errors->first('image') }}</div>
+        </div>
+
         <div class='form-instructions'>
-            Common Name is required
+            Name is required
         </div>
 
         <button type="submit" class="btn btn-primary">Add Garden</button>
@@ -114,4 +127,10 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body')
+    <script
+              src="http://code.jquery.com/jquery-3.1.1.min.js"
+              integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+              crossorigin="anonymous"></script>
+	<script src="js/jcanvas.min.js"></script>
+    <script src="js/jcanvas.js"></script>
 @stop

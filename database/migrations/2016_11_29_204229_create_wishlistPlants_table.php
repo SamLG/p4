@@ -28,8 +28,8 @@ class CreateWishlistplantsTable extends Migration
             $table->string('scientific_name')->nullable();
             $table->text('description')->nullable();
             $table->string('prior_success')->nullable();
-            $table->integer('min_zone')->nullable();
-            $table->integer('max_zone')->nullable();
+            $table->string('min_zone')->nullable();
+            $table->string('max_zone')->nullable();
             $table->string('height')->nullable();
             $table->string('bloomtime')->nullable();
             $table->string('last_grown')->nullable();

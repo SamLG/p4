@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Garden extends Model
 {
+    public function user() {
+        return $this->belongsTo('P4\User');
+    }
+
     public function plants()
     {
         # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained

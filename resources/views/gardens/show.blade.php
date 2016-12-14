@@ -18,6 +18,10 @@ such as a page specific stylesheets.
 @section('content')
     <h2>Here is your garden</h2>
 
+    <canvas width="300" height="300" id="myCanvas" style="cursor:crosshair;background:url({{$garden->image}});background-size: 300px 300px;"></canvas>
+    <button id="addLocationBTN">Add a Location</button>
+    <!-- <input name='image' id='image' value='{{$garden->image}}' type='hidden'> -->
+
     <h3>{{ $garden->name }}</h3>
     <h4>Location</h4>
     <p>
@@ -96,4 +100,10 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body')
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/16.7.3/jcanvas.js"></script>
+    <script src="/js/jcanvas.js"></script>
 @stop

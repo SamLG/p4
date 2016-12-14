@@ -14,10 +14,19 @@ use Session;
 
 class GardensController extends Controller
 {
+    function zones(){
+        $usda_zones;
+        for ($i=1; $i <= 13; $i++) {
+            $usda_zones[] = $i.'a';
+            $usda_zones[] = $i.'b';
+        }
+        return $usda_zones;
+    }
+
     /**
      * Responds to requests to GET /
      * purpose: Listing of gardens & wishlist gardens
-     * Route::get('/gardens', 'GardenController@index')->name('garden.index');
+     * Route::get('/gardens', 'GardensController@index')->name('garden.index');
      */
     // public function index()
     // {
@@ -30,7 +39,7 @@ class GardensController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show individual garden
-     * Route::get('/gardens/show/{id}', 'GardenController@show')->name('gardens.show');
+     * Route::get('/gardens/show/{id}', 'GardensController@show')->name('gardens.show');
      */
     public function show($id)
     {
@@ -44,16 +53,16 @@ class GardensController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to add garden
-     * Route::post('/gardens/create', 'GardenController@create')->name('gardens.create');
+     * Route::post('/gardens/create', 'GardensController@create')->name('gardens.create');
      */
     public function create()
     {
-        return view('gardens.create');
+        return view('gardens.create')->with(['usda_zones'=>$this->zones()]);
     }
     /**
      * Responds to requests to POST /
      * purpose: Process form to add garden
-     * Route::post('/gardens/create', 'GardenController@store')->name('gardens.store');
+     * Route::post('/gardens/create', 'GardensController@store')->name('gardens.store');
      */
     public function store(Request $request)
     {
@@ -78,8 +87,9 @@ class GardensController extends Controller
        $garden->location = $request->input('location');
        $garden->description = $request->input('description');
        $garden->created = $request->input('created');
+    //    $book->author_id = $request->author_id;
        $garden->zone = $request->input('zone');
-    //    $garden->garden_id = $request->garden()->id;
+       $garden->user_id = $request->user()->id; # <--- NEW LINE
        $garden->save();
     //    # Save Garden
     //    $gardens = ($request->gardens) ?: [];
@@ -93,7 +103,7 @@ class GardensController extends Controller
     /**
      * Responds to requests to GET /
      * purpose: Show form to edit garden
-     * Route::get('/gardens/edit/{id}}', 'GardenController@edit')->name('gardens.edit');
+     * Route::get('/gardens/edit/{id}}', 'GardensController@edit')->name('gardens.edit');
      */
     public function edit($id)
     {
@@ -102,13 +112,13 @@ class GardensController extends Controller
             Session::flash('flash_message','garden not found.');
             return redirect('/home');
         }
-        return view('gardens.edit')->with(['garden'=>$garden]);
+        return view('gardens.edit')->with(['garden'=>$garden])->with(['usda_zones'=>$this->zones()]);
         // return view('gardens.edit');
     }
     /**
      * Responds to requests to POST /
      * purpose: Process form to edit garden
-     * Route::put('/gardens/{id}', 'GardenController@update')->name('gardens.update');
+     * Route::put('/gardens/{id}', 'GardensController@update')->name('gardens.update');
      */
     public function update(Request $request, $id)
     {
@@ -175,9 +185,12 @@ class GardensController extends Controller
             return redirect('/home');
         }
         # First remove any tags associated with this garden
-        // if($garden->gardens()) {
-        //     $garden->gardens()->detach();
-        // }
+        if($garden->plants()) {
+            $garden->plants()->detach();
+        }
+        if($garden->wishlistplants()) {
+            $garden->wishlistplants()->detach();
+        }
         # Then delete the garden
         $garden->delete();
         # Finish

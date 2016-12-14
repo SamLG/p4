@@ -16,19 +16,29 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Manage your gardens!</h2>
-    <h3>My Gardens</h3>
-    <a href='/gardens/create'><button>Add Garden</button></a>
-    @foreach($gardens as $garden)
-        <a href='/gardens/show/{{ $garden->id }}'>
-            <div class='each'>
-                <h4>{{ $garden->name }}</h4>
-                <p>{{ $garden->description }}</p>
-                <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete</button></a>
-                <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit</button></a>
-            </div>
-        </a>
-    @endforeach
+    @if(Auth::check())
+        <h2>Welcome back to <em>Green Thumb</em> {{Auth::user()->name}}!</h2>
+        <h3>Your Gardens</h3>
+        <a href='/gardens/create'><button>Add Garden</button></a>
+        @foreach($gardens as $garden)
+            <a href='/gardens/show/{{ $garden->id }}'>
+                <div class='each'>
+                    <h4>{{ $garden->name }}</h4>
+                    <p>{{ $garden->description }}</p>
+                    <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete</button></a>
+                    <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit</button></a>
+                </div>
+            </a>
+        @endforeach
+    @else
+        <h2>Welcome to <em>Green Thumb</em> the web application for managing your gardens!</h2>
+        <ul>
+            <li>Create gardens</li>
+            <li>Populate your gardens with plants</li>
+            <li>Keep a wishlist of plants that you want in the future</li>
+        </ul>
+        <a href='/register'><button>Get Started with your first Garden</button></a>
+    @endif
 
 @stop
 

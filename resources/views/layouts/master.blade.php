@@ -39,10 +39,19 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/gardens">My Gardens</a></li>
-                    <!-- <li><a href="/plants">My Plants</a></li>
-                    <li><a href="/wishlist">My Wishlist Plants</a></li> -->
+                    @if(Auth::check())
+                        <li><a href="/">Home</a></li>
+                        @foreach($gardens as $garden)
+                            <li><a href='/gardens/show/{{ $garden->id }}'>{{ $garden->name }}</a></li>
+                        @endforeach
+                        <li><a href="/logout">Logout</a></li>
+                        <!-- <li><a href="/plants">My Plants</a></li>
+                        <li><a href="/wishlist">My Wishlist Plants</a></li> -->
+                    @else
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/register">Register</a></li>
+                    @endif
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
@@ -62,8 +71,5 @@
             <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
