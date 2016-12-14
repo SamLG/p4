@@ -69,11 +69,12 @@ class PlantsController extends Controller
         # Validate
        $this->validate($request, [
            'common_name' => 'required',
-           'min_zone' => 'zone_check:min_zone,max_zone'
+           'min_zone' => 'zone_check:min_zone,max_zone',
+           'location' => 'numeric',
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
-    ], $this->messages());
+        ], $this->messages());
        # If there were errors, Laravel will redirect the
        # user back to the page that submitted this request
        # The validator will tack on the form data to the request
@@ -135,6 +136,8 @@ class PlantsController extends Controller
        $this->validate($request, [
            'common_name' => 'required',
            'min_zone' => 'zone_check:min_zone,max_zone',
+           'location' => 'numeric',
+
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',
@@ -246,6 +249,8 @@ class PlantsController extends Controller
        $this->validate($request, [
            'common_name' => 'required',
            'min_zone' => 'zone_check:min_zone,max_zone',
+           'location' => 'numeric',
+
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',

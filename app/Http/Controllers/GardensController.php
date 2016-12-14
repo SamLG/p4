@@ -70,7 +70,8 @@ class GardensController extends Controller
        $this->validate($request, [
            'name' => 'required',
         //    'published' => 'required|min:4|numeric',
-        //    'cover' => 'required|url',
+           'image' => 'url',
+           'locations' => 'numeric',
         //    'purchase_link' => 'required|url',
        ]);
        # If there were errors, Laravel will redirect the
@@ -89,6 +90,9 @@ class GardensController extends Controller
        $garden->created = $request->input('created');
     //    $book->author_id = $request->author_id;
        $garden->zone = $request->input('zone');
+       $garden->image = $request->input('image');
+       $garden->planImage = $request->input('planImage');
+       $garden->locations = $request->input('locations');
        $garden->user_id = $request->user()->id; # <--- NEW LINE
        $garden->save();
     //    # Save Garden
@@ -126,7 +130,8 @@ class GardensController extends Controller
        $this->validate($request, [
            'name' => 'required',
         //    'published' => 'required|min:4|numeric',
-        //    'cover' => 'required|url',
+        'image' => 'url',
+        'locations' => 'numeric',
         //    'purchase_link' => 'required|url',
        ]);
        # If there were errors, Laravel will redirect the
@@ -148,6 +153,9 @@ class GardensController extends Controller
        $garden->description = $request->input('description');
        $garden->created = $request->input('created');
        $garden->zone = $request->input('zone');
+       $garden->image = $request->input('image');
+       $garden->planImage = $request->input('planImage');
+       $garden->locations = $request->input('locations');
     //    $garden->garden_id = $request->garden()->id;
        $garden->save();
     //    # Save Garden

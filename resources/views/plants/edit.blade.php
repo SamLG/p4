@@ -134,14 +134,36 @@ such as a page specific stylesheets.
            <div class='error'>{{ $errors->first('planted') }}</div>
         </div>
 
-        <div class='form-group'>
-           <label>Location</label>
-           <input
-               type='text'
-               id='location'
-               name='location'
-               value='{{ old('location', $plant->location) }}'
-           >
+        <?php if ($garden->locations == 0) {
+            echo 'no locations were created';
+        }?>
+        <div class="form-group">
+            <label for='location'>Available Locations</label>
+            <select id='location' name='location'>
+                @if ($garden->plants()->count()>0)
+                    <?php $options =array(); ?>
+                    @foreach ($garden->plants as $plant)
+                        @if ($plant->location > 0)
+                            <?php $options[] = $plant->location; ?>
+                        @endif
+                    @endforeach
+                    @for ($i = 1; $i <= $garden->locations; $i++)
+                        @if (!in_array($i, $options))
+                            <!-- @if ($plant->location != $i) -->
+                                <option value='{{ $i }}' {{ ($plant->location == $i) ? 'SELECTED' : '' }}>
+                                    {{ $i }}
+                                </option>
+                            <!-- @endif -->
+                        @endif
+                    @endfor
+                @else
+                    @for ($j = 1; $j <= $garden->locations; $j++)
+                        <option value='{{ $j }}' {{ ($plant->location == $j) ? 'SELECTED' : '' }}>
+                            {{ $j }}
+                        </option>
+                    @endfor
+                @endif
+            </select>
            <div class='error'>{{ $errors->first('location') }}</div>
         </div>
 

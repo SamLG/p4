@@ -25,7 +25,7 @@ class PlantsTableSeeder extends Seeder
        'height' => '28-46 inches',
        'bloomtime' => 'late spring - early summer',
        'planted' => 'Spring 2015',
-       'location' => '',
+       'location' => 3,
        ]);
 
        DB::table('plants')->insert([
@@ -40,7 +40,7 @@ class PlantsTableSeeder extends Seeder
            'height' => '2-3 ft',
            'bloomtime' => 'fall',
            'planted' => 'Fall 2015',
-           'location' => '',
+           'location' => 1,
        ]);
 
        DB::table('plants')->insert([
@@ -55,7 +55,7 @@ class PlantsTableSeeder extends Seeder
            'height' => '6-8 inches',
            'bloomtime' => 'late spring - fall',
            'planted' => 'Summer 2013',
-           'location' => '',
+           'location' => 2,
        ]);
     }
 }

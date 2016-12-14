@@ -242,6 +242,7 @@ class WishlistplantsController extends Controller
        $this->validate($request, [
            'common_name' => 'required',
            'min_zone' => 'zone_check:min_zone,max_zone',
+           'location' => 'numeric'
         //    'published' => 'required|min:4|numeric',
         //    'cover' => 'required|url',
         //    'purchase_link' => 'required|url',

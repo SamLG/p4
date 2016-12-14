@@ -16,13 +16,23 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Add new garden</h2>
+    <div class="planCreation">
+        <h3>Your Garden Plan</h3>
+        <canvas width="300" height="300" id="myCanvas"></canvas>
+        <br>
+        <button id="addLocationBTN">Add Location</button>
+        <button id="saveCanvas">Save Plan</button>
+        <button id="clearCanvas">Clear Plan</button>
+    </div>
 
-    <canvas width="620" height="441" id="canvas1"></canvas>
+    <h2>Add new garden</h2>
 
     <form method='POST' action='/gardens/create'>
 
         {{ csrf_field() }}
+        <!-- hidden inputs to store data from canvas -->
+        <input name='planImage' id='planImage' value='' type='hidden'>
+        <input name='locations' id='locations' value='0' type='hidden'>
 
         <div class='form-group'>
            <label>Name</label>
@@ -86,7 +96,7 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-           <label>Garden Plan</label>
+           <label>Garden Plan (square/near square images work best)</label>
            <input
                type='text'
                id='image'
@@ -127,10 +137,4 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body')
-    <script
-              src="http://code.jquery.com/jquery-3.1.1.min.js"
-              integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-              crossorigin="anonymous"></script>
-	<script src="js/jcanvas.min.js"></script>
-    <script src="js/jcanvas.js"></script>
 @stop

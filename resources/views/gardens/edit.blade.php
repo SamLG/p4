@@ -16,6 +16,15 @@ such as a page specific stylesheets.
 
 
 @section('content')
+    <div class="planCreation">
+        <h3>Your Garden Plan</h3>
+        <canvas width="300" height="300" id="myCanvas"></canvas>
+        <br>
+        <button id="addLocationBTN">Add Location</button>
+        <button id="saveCanvas">Save Plan</button>
+        <button id="clearCanvas">Clear Plan</button>
+    </div>
+
     <h2>Edit {{ $garden->common_name }} </h2>
 
     <form method='POST' action='/gardens/{{ $garden->id }}'>
@@ -23,6 +32,9 @@ such as a page specific stylesheets.
         {{ method_field('PUT') }}
 
         {{ csrf_field() }}
+
+        <input name='planImage' id='planImage' value='{{ $garden->planImage }}' type='hidden'>
+        <input name='locations' id='locations' value='{{ $garden->locations }}' type='hidden'>
 
         <input name='id' value='{{$garden->id}}' type='hidden'>
 
@@ -84,6 +96,17 @@ such as a page specific stylesheets.
                  @endforeach
             </select>
            <div class='error'>{{ $errors->first('zone') }}</div>
+        </div>
+
+        <div class='form-group'>
+           <label>Garden Plan (square/near square images work best)</label>
+           <input
+               type='text'
+               id='image'
+               name='image'
+               value='{{ old('image', 'http://teaone.net/uploads/fotos/how-to-design-your-backyard-landscape_989_900_696.jpg') }}'
+           >
+           <div class='error'>{{ $errors->first('image') }}</div>
         </div>
 
         <div class='form-instructions'>

@@ -6,58 +6,38 @@
  * @version Last modified 12_13_16
 **/
 $(document).ready(function(){
-    $('h2').click(function(){
-		console.log('Test!');
-		alert('Testing!');
-	}); //end apple click
-    // $('canvas').drawRect({ //background color
-    //     fillStyle: 'lightgrey',
-    //     x: 250, y: 175,
-    //     width: 500,
-    //     height: 350
-    // });
-    // var c = document.getElementById("myCanvas");
-    // var ctx = c.getContext("2d");
-    // var img = new Image();
-    // img.onload = function() {
-    //     ctx.drawImage(img, 0, 0, 300, 300);
-    // };
-    // img.src = $('#image').val();
-    //
-    var clickCount = 0;
-    //
-    // // helper function to get an element's exact position
-    // // function getPosition(el) {
-    // //   var xPosition = 0;
-    // //   var yPosition = 0;
-    // //
-    // //   while (el) {
-    // //     if (el.tagName == "BODY") {
-    // //       // deal with browser quirks with body/window/document and page scroll
-    // //       var xScrollPos = el.scrollLeft || document.documentElement.scrollLeft;
-    // //       var yScrollPos = el.scrollTop || document.documentElement.scrollTop;
-    // //
-    // //       xPosition += (el.offsetLeft - xScrollPos + el.clientLeft);
-    // //       yPosition += (el.offsetTop - yScrollPos + el.clientTop);
-    // //     } else {
-    // //       xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-    // //       yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
-    // //     }
-    // //
-    // //     el = el.offsetParent;
-    // //   }
-    // //   return {
-    // //     x: xPosition,
-    // //     y: yPosition
-    // //   };
-    // // }
-    //
+
+    setImage($('#image').val());
+    add_plan();
+
+    function setImage(image){
+        var value = image;
+        //url treated as obj we want it as a string for setting backgroun-image
+        var stringy = String(value);
+        $('canvas').css('background-image', "url(" + stringy + ")").css('background-size', '300px 300px');
+    }
+
+    function add_plan()
+    {
+        var canvas = document.getElementById('myCanvas'),
+        context = canvas.getContext('2d');
+        //for show and edit, need to grab prior plan as overlay
+        var planImageSRC = $('#planImage').val();
+        //need to keep track of how many locations were created
+        var plan_image = new Image();
+        plan_image.src = planImageSRC;
+        plan_image.onload = function(){
+            context.drawImage(plan_image, 0, 0, 300, 300);
+        }
+    }
+
+    var locations = 0;
+    // if locations has value then want to start count there
+    if ($('#locations').val() > 0) {
+        locations = $('#locations').val();
+    }
     $('#addLocationBTN').click(function(){
-        // getPosition(e);
-        // var positions = getPosition();
-        // var x = positions.x;
-        // var y = positions.y;
-        clickCount++;
+        locations++;
 		$('canvas').drawText({
 			fillStyle: 'darkred',
 			strokeStyle: 'white',
@@ -66,44 +46,50 @@ $(document).ready(function(){
 			y: 50,
 			fontSize: '2em',
 			fontFamily: 'Impact, sans-serif',
-			text: clickCount,
+			text: locations,
             draggable: true,
 		});
+        // alert(locations);
 	});
 
-    var dataURL = canvas.toDataURL('image/png');
-    $.ajax({
-      type: "POST",
-      url: "script.php",
-      data: {
-         imgBase64: dataURL
-      }
-    }).done(function(o) {
-      console.log('saved');
-      // If you want the file to be visible in the browser
-      // - please modify the callback in javascript. All you
-      // need is to return the url to the file, you just saved
-      // and than put the image in your browser.
+    // alert(locations);
+
+    $('canvas').hover(function(){
+        add_plan();
     });
-//end button1 click
-    // function drawIt(xPos,yPos) {
-    //     $('canvas').drawText({
-    //         fillStyle: 'darkred',
-    //         strokeStyle: 'white',
-    //         strokeWidth: 1,
-    //         x: 50,
-    //         y: 50,
-    //         fontSize: '2em',
-    //         fontFamily: 'Impact, sans-serif',
-    //         text: clickCount,
-    //     });
-    // }
-    //
-    // $('canvas').click(function(e){
-    //      var rect = canvas.getBoundingClientRect();
-    //      var x = e.clientX - rect.left;
-    //      var y = e.clientY - rect.top;
-    //      alert('hello');
-    //      drawIt(x,y);
-    // }
+    $('canvas').mousemove(function(){
+        add_plan();
+    });
+
+    $('#saveCanvas').click(function(){
+        $('#locations').val(locations);
+        var canvas = document.getElementById('myCanvas');
+        var dataURL = canvas.toDataURL();
+        // var stringyCanvas = String(dataURL);
+        $('#planImage').val(dataURL);
+        var check = $('#planImage').val();
+        // alert(check);
+        // alert(locations + $('#locations').val());
+
+    });
+
+    // clear the canvas
+    $('#clearCanvas').click(function(){
+        clearMe();
+    });
+
+    function clearMe (){
+        $('canvas').clearCanvas();
+        // make sure nothing is saved
+        $('#planImage').val('');
+        $('#locations').val(0);
+        planImageSRC = '';
+        locations = 0;
+    }
+
+    $('#image').change(function(){
+        clearMe();
+        setImage($('#image').val());
+    });
+
 });//end doc ready

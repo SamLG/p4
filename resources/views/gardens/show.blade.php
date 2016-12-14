@@ -16,47 +16,67 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <h2>Here is your garden</h2>
+    <div class = "garden">
+        <div class="planCreation">
+            <div class="planCreationPart">
+                <h3>Your Garden Plan</h3>
+                <p>Possible planting locations: {{ $garden-> locations}}</p>
+                <canvas width="300" height="300" id="myCanvas"></canvas>
+                <input name='planImage' id='planImage' value='{{ $garden-> planImage}}' type='hidden'>
+                <input name='image' id='image' value='{{ $garden -> image}}' type='hidden'>
+            </div>
+            <div class="planCreationPart list">
+                <ul class='plantLocations'>
+                    @foreach ($garden->plants as $plant)
+                        @if ($plant->location > 0)
+                            <li>
+                                <?php
+                                    echo $plant->location . ': ' . $plant->common_name;
+                                ?>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <h2>Here is your garden</h2>
 
-    <canvas width="300" height="300" id="myCanvas" style="cursor:crosshair;background:url({{$garden->image}});background-size: 300px 300px;"></canvas>
-    <button id="addLocationBTN">Add a Location</button>
-    <!-- <input name='image' id='image' value='{{$garden->image}}' type='hidden'> -->
-
-    <h3>{{ $garden->name }}</h3>
-    <h4>Location</h4>
-    <p>
-        @if( $garden->location )
-            {{$garden->location}}
-        @else
-            <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Location</button></a>
-        @endif
-    </p>
-    <h4>Description</h4>
-    <p>
-        @if( $garden->description )
-            {{$garden->description}}
-        @else
-            <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Description</button></a>
-        @endif
-    </p>
-    <h4>Created</h4>
-    <p>
-        @if( $garden->created )
-            {{$garden->created}}
-        @else
-            <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Created</button></a>
-        @endif
-    </p>
-    <h4>USDA Zone</h4>
-    <p>
-        @if( $garden->zone )
-            {{$garden->zone}}
-        @else
-            <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Zone</button></a>
-        @endif
-    </p>
-    <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete</button></a>
-    <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit</button></a>
+        <h3>{{ $garden->name }}</h3>
+        <h4>Location</h4>
+        <p>
+            @if( $garden->location )
+                {{$garden->location}}
+            @else
+                <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Location</button></a>
+            @endif
+        </p>
+        <h4>Description</h4>
+        <p>
+            @if( $garden->description )
+                {{$garden->description}}
+            @else
+                <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Description</button></a>
+            @endif
+        </p>
+        <h4>Created</h4>
+        <p>
+            @if( $garden->created )
+                {{$garden->created}}
+            @else
+                <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Created</button></a>
+            @endif
+        </p>
+        <h4>USDA Zone</h4>
+        <p>
+            @if( $garden->zone )
+                {{$garden->zone}}
+            @else
+                <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Zone</button></a>
+            @endif
+        </p>
+        <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete Garden</button></a>
+        <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit Garden</button></a>
+    </div>
 
     <div class=gardenPlants row>
         <div class='plants col-md-6'>
@@ -100,10 +120,5 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body')
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/16.7.3/jcanvas.js"></script>
-    <script src="/js/jcanvas.js"></script>
+@section('body')
 @stop

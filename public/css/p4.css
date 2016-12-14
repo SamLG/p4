@@ -115,6 +115,29 @@ footer {
     height: 60px;
     width: 100%;
 }
+.planCreation {
+    float: right;
+    overflow: auto;
+}
+.planCreationPart {
+    float: left;
+}
+.list {
+    margin-top: 7em;
+}
+.plantLocations {
+    list-style: none;
+}
+.garden {
+    overflow: auto;
+}
+/*canvas {
+    background-color: grey;
+}*/
+/*img.gardenImage {
+    height: 300px;
+    width: 300px;
+}*/
 .error {
     color: red;
     font-style: italic;

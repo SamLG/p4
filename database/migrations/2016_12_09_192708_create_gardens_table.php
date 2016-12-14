@@ -30,6 +30,8 @@ class CreateGardensTable extends Migration
             $table->string('created')->nullable();
             $table->string('zone')->nullable();
             $table->string('image')->nullable();
+            $table->text('planImage')->nullable();
+            $table->integer('locations')->nullable();
         });
     }
 

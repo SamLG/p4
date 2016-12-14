@@ -33,7 +33,7 @@ class CreatePlantsTable extends Migration
             $table->string('height')->nullable();
             $table->string('bloomtime')->nullable();
             $table->string('planted')->nullable();
-            $table->string('location')->nullable();
+            $table->integer('location')->nullable();
         });
     }
 

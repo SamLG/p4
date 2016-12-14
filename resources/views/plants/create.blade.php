@@ -144,6 +144,37 @@ such as a page specific stylesheets.
            <div class='error'>{{ $errors->first('location') }}</div>
         </div>
 
+        <?php if ($garden->locations == 0) {
+            echo 'no locations were created';
+        }?>
+        <div class="form-group">
+            <label for='location'>Available Locations</label>
+            <select id='location' name='location'>
+                @if ($garden->plants()->count()>0)
+                    <?php $options =array(); ?>
+                    @foreach ($garden->plants as $plant)
+                        @if ($plant->location > 0)
+                            <?php $options[] = $plant->location; ?>
+                        @endif
+                    @endforeach
+                    @for ($i = 1; $i <= $garden->locations; $i++)
+                        @if (!in_array($i, $options))
+                                <option value='{{ $i }}'>
+                                    {{ $i }}
+                                </option>
+                        @endif
+                    @endfor
+                @else
+                    @for ($j = 1; $j <= $garden->locations; $j++)
+                        <option value='{{ $j }}'>
+                            {{ $j }}
+                        </option>
+                    @endfor
+                @endif
+            </select>
+           <div class='error'>{{ $errors->first('location') }}</div>
+        </div>
+
         <div class='form-instructions'>
             Common Name is required
         </div>

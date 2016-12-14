@@ -42,7 +42,10 @@
                     @if(Auth::check())
                         <li><a href="/">Home</a></li>
                         @foreach($gardens as $garden)
-                            <li><a href='/gardens/show/{{ $garden->id }}'>{{ $garden->name }}</a></li>
+                            <!-- limit number of nav buttons, later I will setup a selection so user can pick which gardens will be in nav-->
+                            @if($garden == $gardens[0] || $garden == $gardens[1] || $garden == $gardens[2] || $garden == $gardens[3])
+                                <li><a href='/gardens/show/{{ $garden->id }}'>{{ $garden->name }}</a></li>
+                            @endif
                         @endforeach
                         <li><a href="/logout">Logout</a></li>
                         <!-- <li><a href="/plants">My Plants</a></li>
@@ -71,5 +74,11 @@
             <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/16.7.3/jcanvas.js"></script>
+        <script src="/js/jcanvas.js"></script>
     </body>
 </html>
