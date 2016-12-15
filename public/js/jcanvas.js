@@ -31,7 +31,6 @@ $(document).ready(function(){
         context = canvas.getContext('2d');
         //for show and edit, need to grab prior plan as overlay
         var planImageSRC = $('#planImage').val();
-        //need to keep track of how many locations were created
         var plan_image = new Image();
         plan_image.src = planImageSRC;
         plan_image.onload = function(){
@@ -45,6 +44,7 @@ $(document).ready(function(){
         locations = $('#locations').val();
     }
     $('#addLocationBTN').click(function(){
+        // increment integer value for drawText
         locations++;
 		$('canvas').drawText({
 			fillStyle: 'darkred',
@@ -57,16 +57,12 @@ $(document).ready(function(){
 			text: locations,
             draggable: true,
 		});
-        // alert(locations);
 	});
-
-    // alert(locations);
 
     $('#saveCanvas').click(function(){
         $('#locations').val(locations);
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
-        // var stringyCanvas = String(dataURL);
         $('#planImage').val(dataURL);
     });
 

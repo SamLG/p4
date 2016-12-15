@@ -9,14 +9,11 @@
 | by your application. Just tell Laravel the URIs it should respond
 | to using a Closure or controller method. Build something great!
 |
-*/
-//
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 /*purpose: Homepage*/
 Route::get('/', 'HomeController@index')->name('index');
+
+// Garden Routes
 
 Route::get('/gardens/show/{id}', 'GardensController@show')->name('gardens.show')->middleware('auth');;
 
@@ -34,6 +31,7 @@ Route::get('/gardens/delete/{id}', 'GardensController@delete')->name('gardens.de
 /*purpose: Get route to delete garden*/
 Route::delete('/gardens/delete/{id}', 'GardensController@destroy')->name('gardens.destroy')->middleware('auth');;
 
+// Plant Routes
 
 /*purpose: Show individual plant*/
 Route::get('/gardens/{garden_id}/plants/show/{id}', 'PlantsController@show')->name('plants.show')->middleware('auth');;
@@ -65,6 +63,7 @@ Route::put('/gardens/{garden_id}/plants/move/{id}', 'PlantsController@transfer')
 /*purpose: Route to remove plant from plant list*/
 Route::delete('/gardens/{garden_id}/plants/remove/{id}', 'PlantsController@remove')->name('plants.remove')->middleware('auth');;
 
+// Wishlist Routes
 
 /*purpose: Show individual wishlist plant*/
 Route::get('/gardens/{garden_id}/wishlistplants/show/{id}', 'WishlistplantsController@show')->name('wishlistplants.show')->middleware('auth');;
@@ -96,41 +95,6 @@ Route::put('/gardens/{garden_id}/wishlistplants/move/{id}', 'WishlistplantsContr
 /*purpose: Route to remove wishlistplant from wishlist*/
 Route::delete('/gardens/{garden_id}/wishlistplants/remove/{id}', 'WishlistplantsController@remove')->name('wishlistplants.remove')->middleware('auth');;
 
-
-// Route::get('/debug', function() {
-//
-//     echo '<pre>';
-//
-//     echo '<h1>Environment</h1>';
-//     echo App::environment().'</h1>';
-//
-//     echo '<h1>Debugging?</h1>';
-//     if(config('app.debug')) echo "Yes"; else echo "No";
-//
-//     echo '<h1>Database Config</h1>';
-//     /*
-//     The following line will output your MySQL credentials.
-//     Uncomment it only if you're having a hard time connecting to the database and you
-//     need to confirm your credentials.
-//     When you're done debugging, comment it back out so you don't accidentally leave it
-//     running on your live server, making your credentials public.
-//     */
-//     //print_r(config('database.connections.mysql'));
-//
-//     echo '<h1>Test Database Connection</h1>';
-//     try {
-//         $results = DB::select('SHOW DATABASES;');
-//         echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-//         echo "<br><br>Your Databases:<br><br>";
-//         print_r($results);
-//     }
-//     catch (Exception $e) {
-//         echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-//     }
-//
-//     echo '</pre>';
-//
-// });
 if(App::environment('local')) {
 
     Route::get('/drop', function() {
@@ -146,7 +110,5 @@ if(App::environment('local')) {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-// Route::get('/', 'HomeController@index');
 
 Route::get('/logout','Auth\LoginController@logout')->name('logout');

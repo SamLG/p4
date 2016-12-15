@@ -22,10 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        // $gardens = Garden::all();
-        // return view('home.index')->with(['gardens'=>$gardens]);
-
         // https://laracasts.com/series/laravel-5-fundamentals/episodes/25
         view()->composer('layouts.master', function($view)
         {

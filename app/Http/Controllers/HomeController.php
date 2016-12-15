@@ -17,17 +17,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        // $gardens = Garden::all();
-        // return view('home.index')->with(['gardens'=>$gardens]);
         $user = $request->user();
 
         # Note: We're getting the user from the request, but you can also get it like this:
         //$user = Auth::user();
 
         if($user) {
-            # Approach 1)
-            //$books = Book::where('user_id', '=', $user->id)->orderBy('id','DESC')->get();
-
             # Approach 2) Take advantage of Model relationships
             $gardens = $user->gardens()->get();
         }
