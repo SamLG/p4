@@ -99,12 +99,12 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-           <label>Garden Plan (square/near square images work best)</label>
+           <label>Garden Plan Image (url)</label>
            <input
                type='text'
                id='image'
                name='image'
-               value='{{ old('image', 'http://teaone.net/uploads/fotos/how-to-design-your-backyard-landscape_989_900_696.jpg') }}'
+               value='{{ old('image', '') }}'
            >
            <div class='error'>{{ $errors->first('image') }}</div>
         </div>

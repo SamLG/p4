@@ -73,7 +73,7 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-           <label>Created</label>
+           <label>When was the Garden Created</label>
            <input
                type='text'
                id='created'
@@ -96,7 +96,7 @@ such as a page specific stylesheets.
         </div>
 
         <div class='form-group'>
-           <label>Garden Plan (square/near square images work best)</label>
+           <label>Garden Plan Image (url)</label>
            <input
                type='text'
                id='image'
