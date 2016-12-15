@@ -89,6 +89,7 @@ main a, main a:hover, main a:visited {
     background-color: rgb(0, 26, 0);
 }
 .btn {
+    color: white;
     font-size: 1.2em;
     background-color: #267326;
     border: 1px #cccccc solid;
@@ -97,7 +98,6 @@ main a, main a:hover, main a:visited {
     font-size: 1.2em;
     color: white;
     background-color: rgb(0, 26, 0);
-    border: 1px #cccccc solid;
 }
 nav {
     font-size: 1.2em;
