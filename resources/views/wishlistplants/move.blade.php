@@ -167,7 +167,7 @@ such as a page specific stylesheets.
                     @endfor
                 @else
                     @for ($j = 1; $j <= $garden->locations; $j++)
-                        <option value='{{ $j }}' {{ ($plant->location == $j) ? 'SELECTED' : '' }}>
+                        <option value='{{ $j }}'>
                             {{ $j }}
                         </option>
                     @endfor
