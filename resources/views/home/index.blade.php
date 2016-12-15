@@ -19,15 +19,15 @@ such as a page specific stylesheets.
     @if(Auth::check())
         <h2>Welcome back to <em>Green Thumb</em> {{Auth::user()->name}}!</h2>
         <h3>Your Gardens</h3>
-        <a href='/gardens/create'><button>Add Garden</button></a>
+        <a class='button' href='/gardens/create'>Add Garden</a>
         @foreach($gardens as $garden)
             <a href='/gardens/show/{{ $garden->id }}'>
                 <div class='each'>
                     <image alt="gardenImage" class="gardenImage" src="{{ $garden->image }}" />
                     <h4>Go To '{{ $garden->name }}'</h4>
                     <p>{{ $garden->description }}</p>
-                    <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete</button></a>
-                    <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit</button></a>
+                    <a class='button' href='/gardens/delete/{{ $garden-> id}}'>Delete</a>
+                    <a class='button' href='/gardens/edit/{{ $garden-> id}}'>Edit</a>
                 </div>
             </a>
         @endforeach
@@ -38,7 +38,7 @@ such as a page specific stylesheets.
             <li>Populate your gardens with plants</li>
             <li>Keep a wishlist of plants that you want in the future</li>
         </ul>
-        <a href='/register'><button>Get Started with your first Garden</button></a>
+        <a class='button' href='/register'>Get Started with your first Garden</a>
     @endif
 
 @stop

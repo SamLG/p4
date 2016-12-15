@@ -26,7 +26,7 @@ such as a page specific stylesheets.
         @if( $wishlistplant->description )
             {{$wishlistplant->description}}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Description</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Description</a>
         @endif
     </p>
     <h4>Prior Success</h4>
@@ -34,7 +34,7 @@ such as a page specific stylesheets.
         @if( $wishlistplant->prior_success )
             {{$wishlistplant->prior_success}}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Prior Success</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Prior Success</a>
         @endif
     </p>
     <h4>USDA Zones</h4>
@@ -42,12 +42,12 @@ such as a page specific stylesheets.
         @if( $wishlistplant->min_zone > 0)
             {{$wishlistplant->min_zone}}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Minimum</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Minimum</a>
         @endif -
         @if( $wishlistplant->max_zone > 0)
             {{$wishlistplant->max_zone}}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Maximum</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Maximum</a>
         @endif
     </p>
     <h4>Height</h4>
@@ -55,7 +55,7 @@ such as a page specific stylesheets.
         @if( $wishlistplant->height )
             {{$wishlistplant->height}}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Height</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Height</a>
         @endif
     </p>
     <h4>Bloomtime</h4>
@@ -63,7 +63,7 @@ such as a page specific stylesheets.
         @if( $wishlistplant->bloomtime )
             {{ $wishlistplant->bloomtime }}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Bloomtime</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Bloomtime</a>
         @endif
     </p>
     <h4>Last Grown</h4>
@@ -71,13 +71,13 @@ such as a page specific stylesheets.
         @if( $wishlistplant->last_grown )
             {{ $wishlistplant->last_grown }}
         @else
-            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Last Grown</button></a>
+            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Add Last Grown</a>
         @endif
     </p>
     <br>
-    <a href='/gardens/{{ $garden-> id}}/wishlistplants/delete/{{ $wishlistplant-> id}}'><button>Delete</button></a>
-    <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Edit</button></a>
-    <a href='/gardens/{{ $garden-> id}}/wishlistplants/move/{{ $wishlistplant-> id}}'><button>Add to Plants</button></a>
+    <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/delete/{{ $wishlistplant-> id}}'>Delete</a>
+    <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Edit</a>
+    <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/move/{{ $wishlistplant-> id}}'>Add to Plants</a>
 
 @stop
 

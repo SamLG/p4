@@ -27,7 +27,7 @@ such as a page specific stylesheets.
                     @if( $garden->location )
                         {{$garden->location}}
                     @else
-                        <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Location</button></a>
+                        <a class='button' href='/gardens/edit/{{ $garden-> id}}'>Add Location</a>
                     @endif
                 </p>
                 <h4>Description</h4>
@@ -35,7 +35,7 @@ such as a page specific stylesheets.
                     @if( $garden->description )
                         {{$garden->description}}
                     @else
-                        <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Description</button></a>
+                        <a class='button' href='/gardens/edit/{{ $garden-> id}}'>Add Description</a>
                     @endif
                 </p>
                 <h4>Created</h4>
@@ -43,7 +43,7 @@ such as a page specific stylesheets.
                     @if( $garden->created )
                         {{$garden->created}}
                     @else
-                        <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Created</button></a>
+                        <a class='button' href='/gardens/edit/{{ $garden-> id}}'>Add Created</a>
                     @endif
                 </p>
                 <h4>USDA Zone</h4>
@@ -51,11 +51,11 @@ such as a page specific stylesheets.
                     @if( $garden->zone > 0 )
                         {{$garden->zone}}
                     @else
-                        <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Zone</button></a>
+                        <a class='button' href='/gardens/edit/{{ $garden-> id}}'>Add Zone</a>
                     @endif
                 </p>
-                <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete Garden</button></a>
-                <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit Garden</button></a>
+                <a class='button' href='/gardens/delete/{{ $garden-> id}}'>Delete Garden</a>
+                <a class='button' href='/gardens/edit/{{ $garden-> id}}'>Edit Garden</a>
             </div>
             <div class="planCreation col-xs-12 col-md-6">
                 <div class="planCreationPart">
@@ -87,32 +87,32 @@ such as a page specific stylesheets.
         <div class='gardenPlants row'>
             <div class='plants col-md-6'>
                 <h3>My Plants</h3>
-                <a href='/gardens/{{ $garden-> id}}/plants/create'><button>Add Plant</button></a>
+                <a class='button' href='/gardens/{{ $garden-> id}}/plants/create'>Add Plant</a>
                 @foreach($garden->plants as $plant)
                     <a href="/gardens/{{ $garden-> id}}/plants/show/{{ $plant->id }}">
                         <div class='each'>
                             <img alt="plant" class="plantImage gardenShow" src="{{ $plant->image }}"/>
                             <h4>Go To '{{ $plant->common_name }}'</h4>
                             <p>{{ $plant->description }}</p>
-                            <a href='/gardens/{{ $garden-> id}}/plants/delete/{{ $plant-> id}}'><button>Delete</button></a>
-                            <a href='/gardens/{{ $garden-> id}}/plants/edit/{{ $plant-> id}}'><button>Edit</button></a>
-                            <a href='/gardens/{{ $garden-> id}}/plants/move/{{ $plant-> id}}'><button>Move to Wishlist</button></a>
+                            <a class='button' href='/gardens/{{ $garden-> id}}/plants/delete/{{ $plant-> id}}'>Delete</a>
+                            <a class='button' href='/gardens/{{ $garden-> id}}/plants/edit/{{ $plant-> id}}'>Edit</a>
+                            <a class='button' href='/gardens/{{ $garden-> id}}/plants/move/{{ $plant-> id}}'>Move to Wishlist</a>
                         </div>
                     </a>
                 @endforeach
             </div>
             <div class='plants col-md-6'>
                 <h3>My Wishlist Plants</h3>
-                <a href='/gardens/{{ $garden-> id}}/wishlistplants/create'><button>Add Wishlist Plant</button></a>
+                <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/create'>Add Wishlist Plant</a>
                 @foreach($garden->wishlistplants as $wishlistplant)
                     <a href="/gardens/{{ $garden-> id}}/wishlistplants/show/{{ $wishlistplant->id }}">
                         <div class='each'>
                             <img alt="plant" class="plantImage gardenShow" src="{{ $wishlistplant->image }}"/>
                             <h4>Go To '{{ $wishlistplant->common_name }}'</h4>
                             <p>{{ $wishlistplant->description }}</p>
-                            <a href='/gardens/{{ $garden-> id}}/wishlistplants/delete/{{ $wishlistplant-> id}}'><button>Delete</button></a>
-                            <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Edit</button></a>
-                            <a href='/gardens/{{ $garden-> id}}/wishlistplants/move/{{ $wishlistplant-> id}}'><button>Add to Plants</button></a>
+                            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/delete/{{ $wishlistplant-> id}}'>Delete</a>
+                            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'>Edit</a>
+                            <a class='button' href='/gardens/{{ $garden-> id}}/wishlistplants/move/{{ $wishlistplant-> id}}'>Add to Plants</a>
                         </div>
                     </a>
                 @endforeach
