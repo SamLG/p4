@@ -151,6 +151,10 @@ such as a page specific stylesheets.
         <div class="form-group">
             <label for='location'>Available Locations</label>
             <select id='location' name='location'>
+                <option value='{{ $plant->location }}' selected>
+                    {{ $plant->location }}
+                </option>
+
                 @if ($garden->plants()->count()>0)
                     <?php $options =array(); ?>
                     @foreach ($garden->plants as $plant)
@@ -160,16 +164,14 @@ such as a page specific stylesheets.
                     @endforeach
                     @for ($i = 1; $i <= $garden->locations; $i++)
                         @if (!in_array($i, $options))
-                            <!-- @if ($plant->location != $i) -->
-                                <option value='{{ $i }}' {{ ($plant->location == $i) ? 'SELECTED' : '' }}>
+                                <option value='{{ $i }}'>
                                     {{ $i }}
                                 </option>
-                            <!-- @endif -->
                         @endif
                     @endfor
                 @else
                     @for ($j = 1; $j <= $garden->locations; $j++)
-                        <option value='{{ $j }}' {{ ($plant->location == $j) ? 'SELECTED' : '' }}>
+                        <option value='{{ $j }}'>
                             {{ $j }}
                         </option>
                     @endfor
