@@ -69,7 +69,7 @@ such as a page specific stylesheets.
                                     Login
                                 </button>
 
-                                <a class="btn" href="{{ url('/password/reset') }}">
+                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>
