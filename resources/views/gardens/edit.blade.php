@@ -104,7 +104,7 @@ such as a page specific stylesheets.
                type='text'
                id='image'
                name='image'
-               value='{{ old('image', '') }}'
+               value='{{ old('image', $garden->image) }}'
            >
            <div class='error'>{{ $errors->first('image') }}</div>
         </div>
