@@ -7,7 +7,7 @@
 A site that allows you to create and manage gardens. In those gardens you can also create and manage plants and a wishlist. You are able to create a garden plan with an image and drawing locations for plants, then you can choose plants for those locations. The site uses Laravel framework, bootstrap, forms, jQuery, and jcanvas.
 
 ## Demo
-<#>
+<https://youtu.be/PeeB4GjPuqo>
 
 ## Details for teaching team
 Jill has all of the gardens and plants. In all my coding with jCanvas on this and other projects... I have found jCanvas to be quite buggy in respect to clearing. Unfortunately, my clear button is only temporarily clearing my canvas of recently drawn locations... if the canvas is hovered over they reappear... I know this is a canvas bug, because I edited out any code that would draw those locations back and it still did. Another professor in a different class agreed jCanvas is buggy.
