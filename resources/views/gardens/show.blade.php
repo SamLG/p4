@@ -86,7 +86,7 @@ such as a page specific stylesheets.
                 <a href="/gardens/{{ $garden-> id}}/plants/show/{{ $plant->id }}">
                     <div class='each'>
                         <img alt="plant" class="plantImage gardenShow" src="{{ $plant->image }}"/>
-                        <h4>{{ $plant->common_name }}</h4>
+                        <h4>Go To '{{ $plant->common_name }}'</h4>
                         <p>{{ $plant->description }}</p>
                         <a href='/gardens/{{ $garden-> id}}/plants/delete/{{ $plant-> id}}'><button>Delete</button></a>
                         <a href='/gardens/{{ $garden-> id}}/plants/edit/{{ $plant-> id}}'><button>Edit</button></a>
@@ -102,7 +102,7 @@ such as a page specific stylesheets.
                 <a href="/gardens/{{ $garden-> id}}/wishlistplants/show/{{ $wishlistplant->id }}">
                     <div class='each'>
                         <img alt="plant" class="plantImage gardenShow" src="{{ $wishlistplant->image }}"/>
-                        <h4>{{ $wishlistplant->common_name }}</h4>
+                        <h4>Go To '{{ $wishlistplant->common_name }}'</h4>
                         <p>{{ $wishlistplant->description }}</p>
                         <a href='/gardens/{{ $garden-> id}}/wishlistplants/delete/{{ $wishlistplant-> id}}'><button>Delete</button></a>
                         <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Edit</button></a>

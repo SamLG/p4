@@ -24,7 +24,7 @@ such as a page specific stylesheets.
             <a href='/gardens/show/{{ $garden->id }}'>
                 <div class='each'>
                     <image alt="gardenImage" class="gardenImage" src="{{ $garden->image }}" />
-                    <h4>{{ $garden->name }}</h4>
+                    <h4>Go To '{{ $garden->name }}'</h4>
                     <p>{{ $garden->description }}</p>
                     <a href='/gardens/delete/{{ $garden-> id}}'><button>Delete</button></a>
                     <a href='/gardens/edit/{{ $garden-> id}}'><button>Edit</button></a>

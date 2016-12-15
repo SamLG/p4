@@ -40,13 +40,19 @@ header {
     padding: .5em;
     border-radius: .5em;
 }
-.plants a:hover, .plants a:visited{
+.each:hover {
+    background-color: rgba(0, 26, 0, .8);
+}
+.each:hover h4, .each:hover p {
+    color:white;
+}
+/*.plants a:hover, .plants a:visited{
     color: black;
     text-decoration: none;
 }
 a:hover .eachPlant{
     background-color: grey;
-}
+}*/
 .navbar-brand {
     height: 110px;
     width: auto;
@@ -66,15 +72,20 @@ main {
     margin-bottom: 100px;
     border-radius: 0 0 1em 1em;
 }
-main a {
-    color: #000080;
+main a, main a:hover, main a:visited {
+    color: black;
+    text-decoration: none;
 }
-main a:hover {
+button:hover {
+    color: white;
+    background-color: rgb(0, 26, 0);
+}
+/*main a:hover {
     background: white;
-}
-main a:visited {
+}*/
+/*main a:visited {
     color: #26004d;
-}
+}*/
 
 nav {
     font-size: 1.2em;
@@ -147,7 +158,6 @@ footer {
     color: red;
     font-style: italic;
 }
-
 /*sticky footer finally solved with flexbox https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/*/
 .Site {
   display: flex;
