@@ -10,7 +10,7 @@ A site that allows you to create and manage gardens. In those gardens you can al
 <#>
 
 ## Details for teaching team
-Jill has all of the gardens and plants.
+Jill has all of the gardens and plants. In all my coding with jCanvas on this and other projects... I have found jCanvas to be quite buggy in respect to clearing. Unfortunately, my clear button is only temporarily clearing my canvas of recently drawn locations... if the canvas is hovered over they reappear... I know this is a canvas bug, because I edited out any code that would draw those locations back and it still did. Another professor in a different class agreed jCanvas is buggy.
 
 ## Outside code
 * figured out custom error in part with http://stackoverflow.com/questions/28793716/how-add-custom-validation-rules-when-using-form-request-validation-in-laravel-5

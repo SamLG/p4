@@ -10,6 +10,7 @@ $(document).ready(function(){
     setImage($('#image').val());
     add_plan();
 
+    // these two methods are here to combat a canvas bug that erases the canvas on hover
     $('canvas').hover(function(){
         add_plan();
     });
@@ -74,6 +75,7 @@ $(document).ready(function(){
         clearMe();
     });
 
+    // jcanvas has a bug, where drawn elements are not getting permanently cleared...
     function clearMe (){
         $('canvas').clearCanvas();
         // make sure nothing is saved
