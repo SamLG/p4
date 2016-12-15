@@ -160,7 +160,7 @@ such as a page specific stylesheets.
                 <option value='0'>
                     choose location
                 </option>
-                @if ($plant->location > 0)
+                @if ($plant->location > 0 && $plant->location <= $garden->locations)
                     <option value='{{ $plant->location }}' selected>
                         {{ $plant->location }}
                     </option>

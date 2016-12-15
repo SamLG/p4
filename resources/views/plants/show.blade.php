@@ -75,7 +75,7 @@ such as a page specific stylesheets.
     </p>
     <h4>Location</h4>
     <p>
-        @if( $plant->location > 0)
+        @if( $plant->location > 0 && $plant->location <= $garden->locations)
             {{$plant->location}}
         @else
             <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Location</button></a>

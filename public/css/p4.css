@@ -80,13 +80,6 @@ button:hover {
     color: white;
     background-color: rgb(0, 26, 0);
 }
-/*main a:hover {
-    background: white;
-}*/
-/*main a:visited {
-    color: #26004d;
-}*/
-
 nav {
     font-size: 1.2em;
     font-weight: bold;
@@ -178,7 +171,12 @@ footer {
     background-color:yellow;
     z-index: 100;
 }
-
+/*fix bootstrap issue of horizontal scrollbar... when unnecessary*/
+@media all and (min-width: 768px){
+    main, .garden{
+        overflow-x: hidden;
+    }
+}
 /*screen reader only styling adapted from: http://webaim.org/techniques/css/invisiblecontent/*/
 .sr-only {
         position:absolute;

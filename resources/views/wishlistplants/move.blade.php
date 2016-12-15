@@ -169,7 +169,7 @@ such as a page specific stylesheets.
                     @endforeach
                     @for ($i = 1; $i <= $garden->locations; $i++)
                         @if (!in_array($i, $options))
-                                <option value='{{ $i }}' {{ ($plant->location == $i) ? 'SELECTED' : '' }}>
+                                <option value='{{ $i }}'>
                                     {{ $i }}
                                 </option>
                         @endif

@@ -130,8 +130,8 @@ class GardensController extends Controller
        $this->validate($request, [
            'name' => 'required',
         //    'published' => 'required|min:4|numeric',
-        'image' => 'url',
-        'locations' => 'numeric',
+            'image' => 'url',
+            'locations' => 'numeric',
         //    'purchase_link' => 'required|url',
        ]);
        # If there were errors, Laravel will redirect the
