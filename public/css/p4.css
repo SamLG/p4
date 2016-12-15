@@ -177,6 +177,12 @@ footer {
         overflow-x: hidden;
     }
 }
+@media all and (max-width: 767px){
+    .list {
+        margin: .5em .5em 0 .5em;
+    }
+}
+
 /*screen reader only styling adapted from: http://webaim.org/techniques/css/invisiblecontent/*/
 .sr-only {
         position:absolute;
