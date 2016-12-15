@@ -17,7 +17,7 @@ class GardenWishlistplantTableSeeder extends Seeder
         # The *key* will be the book title, and the *value* will be an array of tags.
         $gardens =[
             'Flowerbed' => ['Peace Rose','Peony Cheddar Surprise'],
-            'Stone & Water Garden' => ['Gladiolus Black Beauty','Peace Rose'],
+            'Stone & Water Garden' => ['Gladiolus Black Beauty'],
             // '' => ['autobiography','nonfiction','classic','women']
         ];
 

@@ -16,8 +16,8 @@ class GardenPlantTableSeeder extends Seeder
         # First, create an array of all the books we want to associate tags with
         # The *key* will be the book title, and the *value* will be an array of tags.
         $gardens =[
-            'Flowerbed' => ['Peony Rasberry Sorbet','Hardy Chrysanthemum','Spotted Dead Nettle'],
-            'Stone & Water Garden' => ['Hardy Chrysanthemum','Spotted Dead Nettle'],
+            'Flowerbed' => ['Peony Rasberry Sorbet','Spotted Dead Nettle'],
+            'Stone & Water Garden' => ['Hardy Chrysanthemum'],
             // '' => ['autobiography','nonfiction','classic','women']
         ];
 
