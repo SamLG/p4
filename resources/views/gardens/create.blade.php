@@ -18,7 +18,7 @@ such as a page specific stylesheets.
 @section('content')
     <div class="planCreation">
         <h3>Your Garden Plan</h3>
-        <p>'Add Location' and drag to its position.<br>'Save Plan' before creating your garden <br> or start again with 'Clear Plan'</p>
+        <p>Upload an image in the form.<br>'Add Location' and drag to its position.<br>'Save Plan' before creating your garden <br> or start again with 'Clear Plan'</p>
         <canvas width="300" height="300" id="myCanvas"></canvas>
         <br>
         <button id="addLocationBTN">Add Location</button>
