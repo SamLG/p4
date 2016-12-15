@@ -134,10 +134,11 @@ footer {
     float: left;
 }
 .list {
-    margin-top: 7em;
+    margin: 5.5em .5em 0 .5em;
 }
 .plantLocations {
     list-style: none;
+    padding: 0;
 }
 .garden {
     overflow: auto;

@@ -90,6 +90,9 @@ such as a page specific stylesheets.
         <div class="form-group">
             <label for='zone'>USDA Zones</label>
             <select id='zone' name='zone'>
+                <option value=null>
+                    choose zone
+                </option>
                 @foreach($usda_zones as $usda_zone)
                      <option value='{{ $usda_zone }}' {{ ($garden->zone == $usda_zone) ? 'SELECTED' : '' }}>
                          {{$usda_zone}}

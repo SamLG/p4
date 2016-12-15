@@ -38,12 +38,12 @@ such as a page specific stylesheets.
     </p>
     <h4>USDA Zones</h4>
     <p>
-        @if( $plant->min_zone )
+        @if( $plant->min_zone > 0 )
             {{$plant->min_zone}}
         @else
             <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Minimum</button></a>
         @endif -
-        @if( $plant->max_zone )
+        @if( $plant->max_zone > 0 )
             {{$plant->max_zone}}
         @else
             <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Maximum</button></a>
@@ -75,7 +75,7 @@ such as a page specific stylesheets.
     </p>
     <h4>Location</h4>
     <p>
-        @if( $plant->location )
+        @if( $plant->location > 0)
             {{$plant->location}}
         @else
             <a href='/gardens/{{$garden->id}}/plants/edit/{{ $plant-> id}}'><button>Add Location</button></a>

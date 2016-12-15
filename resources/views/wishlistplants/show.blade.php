@@ -39,12 +39,12 @@ such as a page specific stylesheets.
     </p>
     <h4>USDA Zones</h4>
     <p>
-        @if( $wishlistplant->min_zone )
+        @if( $wishlistplant->min_zone > 0)
             {{$wishlistplant->min_zone}}
         @else
             <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Minimum</button></a>
         @endif -
-        @if( $wishlistplant->max_zone )
+        @if( $wishlistplant->max_zone > 0)
             {{$wishlistplant->max_zone}}
         @else
             <a href='/gardens/{{ $garden-> id}}/wishlistplants/edit/{{ $wishlistplant-> id}}'><button>Add Maximum</button></a>

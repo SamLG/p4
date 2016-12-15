@@ -26,6 +26,7 @@ such as a page specific stylesheets.
                 <input name='image' id='image' value='{{ $garden -> image}}' type='hidden'>
             </div>
             <div class="planCreationPart list">
+                <h4>Planted Locations</h4>
                 <ul class='plantLocations'>
                     @foreach ($garden->plants as $plant)
                         @if ($plant->location > 0)
@@ -68,7 +69,7 @@ such as a page specific stylesheets.
         </p>
         <h4>USDA Zone</h4>
         <p>
-            @if( $garden->zone )
+            @if( $garden->zone > 0 )
                 {{$garden->zone}}
             @else
                 <a href='/gardens/edit/{{ $garden-> id}}'><button>Add Zone</button></a>

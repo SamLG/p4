@@ -86,6 +86,9 @@ such as a page specific stylesheets.
         <div class="form-group">
             <label for='min_zone'>Minimum Zone</label>
             <select id='min_zone' name='min_zone'>
+                <option value=null>
+                    choose zone
+                </option>
                 @foreach($usda_zones as $usda_zone)
                      <option value='{{ $usda_zone }}'>
                          {{$usda_zone}}
@@ -98,6 +101,9 @@ such as a page specific stylesheets.
         <div class="form-group">
             <label for='max_zone'>Maximum Zone</label>
             <select id='max_zone' name='max_zone'>
+                <option value=null>
+                    choose zone
+                </option>
                 @foreach($usda_zones as $usda_zone)
                      <option value='{{ $usda_zone }}'>
                          {{$usda_zone}}
