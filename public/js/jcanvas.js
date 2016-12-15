@@ -10,6 +10,13 @@ $(document).ready(function(){
     setImage($('#image').val());
     add_plan();
 
+    $('canvas').hover(function(){
+        add_plan();
+    });
+    $('canvas').mousemove(function(){
+        add_plan();
+    });
+
     function setImage(image){
         var value = image;
         //url treated as obj we want it as a string for setting backgroun-image
@@ -54,23 +61,12 @@ $(document).ready(function(){
 
     // alert(locations);
 
-    $('canvas').hover(function(){
-        add_plan();
-    });
-    $('canvas').mousemove(function(){
-        add_plan();
-    });
-
     $('#saveCanvas').click(function(){
         $('#locations').val(locations);
         var canvas = document.getElementById('myCanvas');
         var dataURL = canvas.toDataURL();
         // var stringyCanvas = String(dataURL);
         $('#planImage').val(dataURL);
-        var check = $('#planImage').val();
-        // alert(check);
-        // alert(locations + $('#locations').val());
-
     });
 
     // clear the canvas
@@ -81,7 +77,7 @@ $(document).ready(function(){
     function clearMe (){
         $('canvas').clearCanvas();
         // make sure nothing is saved
-        $('#planImage').val('');
+        $('#planImage').val(' ');
         $('#locations').val(0);
         planImageSRC = '';
         locations = 0;

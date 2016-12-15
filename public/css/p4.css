@@ -39,6 +39,7 @@ header {
     margin-top: .5em;
     padding: .5em;
     border-radius: .5em;
+    overflow: auto;
 }
 .each:hover {
     background-color: rgba(0, 26, 0, .8);
