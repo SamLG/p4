@@ -19,7 +19,7 @@ Jill has all of the gardens and plants. In all my coding with jCanvas on this an
 * background image from http://www.publicdomainpictures.net/view-image.php?image=42539&picture=fresh-green-leaves
 * all other images used are used via url, so source is available
 * Bootstrap: http://getbootstrap.com/css/#overview
-* Bootstrap cdn: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+* Bootstrap cdn: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
 * ie10-viewport-bug-workaroung.js is from Bootstrap
 * https://code.jquery.com/jquery-3.1.1.min.js
 * https://cdnjs.cloudflare.com/ajax/libs/jcanvas/16.7.3/jcanvas.js
