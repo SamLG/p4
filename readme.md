@@ -4,7 +4,7 @@
 <http://greenthumb.samgrise.me/>
 
 ## Description
-A site that allows you to create and manage gardens. In those gardens you can also create and manage plants and a wishlist. You are able to create a garden plan with an image and drawing locations for plants, then you can choose plants for those locations. The site uses Laravel framework, forms, and jcanvas.
+A site that allows you to create and manage gardens. In those gardens you can also create and manage plants and a wishlist. You are able to create a garden plan with an image and drawing locations for plants, then you can choose plants for those locations. The site uses Laravel framework, bootstrap, forms, jQuery, and jcanvas.
 
 ## Demo
 <#>
